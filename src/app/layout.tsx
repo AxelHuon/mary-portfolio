@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
+import StyledComponentsRegistry from '../../lib/registry';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
