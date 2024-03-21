@@ -1,4 +1,4 @@
-import HomeHero from '@/app/home/HomeHero';
+import HomeHero from '@/app/home/Partials/HomeHero';
 
 export default function Home() {
   return (

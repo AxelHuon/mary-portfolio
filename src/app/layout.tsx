@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import StyledComponentsRegistry from '../../lib/registry';
+import './reset.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
