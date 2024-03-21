@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/NanumPenScript-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/colors.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/theme/colors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/HomeHero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +97,8 @@
       <workItem from="1711009881913" duration="419000" />
       <workItem from="1711010547428" duration="397000" />
       <workItem from="1711012733697" duration="2019000" />
+      <workItem from="1711015935421" duration="646000" />
+      <workItem from="1711034565924" duration="224000" />
     </task>
     <servers />
   </component>
