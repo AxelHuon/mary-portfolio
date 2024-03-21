@@ -10,15 +10,17 @@ interface TextStyledProps {
   fontSize: string;
   fontFamily: 'Nanum Pen';
   fontWeight?: number;
-  lineHeight?: string;
+  $lineHeight?: string;
+  $align?: 'left' | 'right' | 'center';
 }
 
 const TextStyledStyle = styled.p<TextStyledProps>`
+  text-align: ${props => props.$align};
   color: ${props => props.color};
   font-size: ${props => props.fontSize};
   font-family: ${props => props.fontFamily};
   font-weight: ${props => props.fontWeight};
-  line-height: ${props => props.lineHeight || 'normal'};
+  line-height: ${props => props.$lineHeight || 'normal'};
   span {
     ${props => props.spanColor}
   }
@@ -32,7 +34,8 @@ const TextStyled: React.FC<TextStyledProps> = ({
   fontSize,
   fontWeight = 500,
   fontFamily,
-  lineHeight,
+  $lineHeight,
+  $align = 'left',
 }) => {
   const props = {
     children,
@@ -42,7 +45,8 @@ const TextStyled: React.FC<TextStyledProps> = ({
     fontSize,
     fontWeight,
     fontFamily,
-    lineHeight,
+    $lineHeight,
+    $align,
   };
 
   return <TextStyledStyle {...props}>{children}</TextStyledStyle>;

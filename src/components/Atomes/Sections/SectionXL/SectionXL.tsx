@@ -2,19 +2,22 @@ import React, { ForwardedRef } from 'react';
 
 import styled from 'styled-components';
 import { device } from '@/utils/breakpoint';
+import { Colors } from '@/theme/colors';
 
 interface SectionXLProps {
   children: React.ReactNode;
-  backgroundColor?: string;
+  bgcolor?: string;
 }
 
 const Section = styled.section<SectionXLProps>`
   position: relative;
   width: 100%;
-  margin: 0 auto;
-  padding-inline: 20px;
   overflow: visible;
+  background-color: ${props => props.bgcolor || Colors.WHITE};
+`;
 
+const ContainerSectionXL = styled.aside`
+  margin: 0 auto;
   @media (${device.tablet}) {
     max-width: 95%;
   }
@@ -24,12 +27,11 @@ const Section = styled.section<SectionXLProps>`
   }
 `;
 
-const ContainerSectionL = styled.aside``;
 const SectionXL = React.forwardRef<HTMLDivElement, SectionXLProps>(
-  ({ children, backgroundColor }, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ children, bgcolor }, ref: ForwardedRef<HTMLDivElement>) => {
     return (
-      <Section ref={ref} backgroundColor={backgroundColor}>
-        <ContainerSectionL>{children}</ContainerSectionL>
+      <Section ref={ref} bgcolor={bgcolor}>
+        <ContainerSectionXL>{children}</ContainerSectionXL>
       </Section>
     );
   },
