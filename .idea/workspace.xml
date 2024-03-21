@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery5.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery6.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/gallery.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,28 +39,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/hero-home&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/public/fonts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "feat/hero-home",
+    "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio/public/images/gallery",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/axelhuon/Lab/mary-portfolio/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/Users/axelhuon/Lab/mary-portfolio/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -65,8 +72,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/fonts" />
       <recent name="$PROJECT_DIR$/public/images/gallery" />
+      <recent name="$PROJECT_DIR$/public/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/theme" />
@@ -98,7 +105,7 @@
       <workItem from="1711012733697" duration="2019000" />
       <workItem from="1711015935421" duration="646000" />
       <workItem from="1711034565924" duration="1000000" />
-      <workItem from="1711043344851" duration="2057000" />
+      <workItem from="1711043344851" duration="5972000" />
     </task>
     <servers />
   </component>
