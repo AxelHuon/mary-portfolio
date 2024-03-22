@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ButtonProps } from './ButtonLink';
+import { TextTypesStyles } from '../../TextStyled/TextStyled.styles';
 
 export const StyledButton = styled.button<ButtonProps>`
   padding: 10px;
@@ -7,9 +8,11 @@ export const StyledButton = styled.button<ButtonProps>`
   border: none;
   width: fit-content;
   letter-spacing: 5%;
-  color: #fff;
 
+  background-color: ${({ backgroundColor }) => backgroundColor};
   a {
+    ${TextTypesStyles.BodyEmphasized}
+    color: ${({ color }) => color};
     text-decoration: none;
   }
   &:hover {

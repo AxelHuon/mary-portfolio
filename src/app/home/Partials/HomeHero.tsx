@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { Colors } from '@/theme/colors';
 import { useGSAP } from '@gsap/react';
 import { CustomEase } from 'gsap/CustomEase';
+import ButtonLink from '@/components/Atomes/Buttons/ButtonLink/ButtonLink';
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -87,6 +88,7 @@ export const BlueBackground = styled.div`
   z-index: 9;
   background-color: ${Colors.PRIMARY};
 `;
+
 const HomeHero: React.FC = () => {
   const ContainerTitleRef = useRef<HTMLDivElement>(null);
 
@@ -121,6 +123,9 @@ const HomeHero: React.FC = () => {
             quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident
             similique accusantium nemo autem.
           </TextStyled>
+          <ButtonLink href={'/projects'} color={Colors.WHITE} backgroundColor={Colors.PRIMARY}>
+            Start a Project
+          </ButtonLink>
         </ContainerText>
         <ContainerImage>
           <Image src={'/images/gallery/mary.webp'} alt={'mary'} width={618} height={618} />

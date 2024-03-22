@@ -33,21 +33,13 @@ const ButtonLink: React.FC<ButtonProps> = ({
     return (
       <StyledButton {...props}>
         <Link href={href} passHref>
-          <TextStyled color={color} $align="center">
-            {children}
-          </TextStyled>
+          {children}
         </Link>
       </StyledButton>
     );
   }
 
-  return (
-    <StyledButton {...props}>
-      <TextStyled color={color} $align="center">
-        {children}
-      </TextStyled>
-    </StyledButton>
-  );
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
 export default ButtonLink;
