@@ -14,7 +14,7 @@ interface NavLinkProps {
 }
 
 interface NavLinkStyledProps {
-  isActive: boolean;
+  $isActive: boolean;
 }
 
 const ContainerNavLink = styled.div`
@@ -24,7 +24,7 @@ const ContainerNavLink = styled.div`
 const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
   text-decoration: none;
   overflow: hidden;
-  color: ${props => (props.isActive ? Colors.PRIMARY : Colors.PRIMARY_300)};
+  color: ${props => (props.$isActive ? Colors.PRIMARY : Colors.PRIMARY_300)};
   transition: color 0.15s ease-in-out;
   &:hover {
     color: ${Colors.PRIMARY};
@@ -42,7 +42,7 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
     }
   }
   &:before {
-    content: ${props => (props.isActive ? 'dsqdsq' : 'none')};
+    content: ${props => (props.$isActive ? 'dsqdsq' : 'none')};
   }
 `;
 
@@ -98,10 +98,10 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
     { scope: navLinkRef },
   );
 
-  const isActive = pathname === href;
+  const $isActive = pathname === href;
   return (
     <ContainerNavLink ref={navLinkRef}>
-      <NavLinkStyled isActive={isActive} href={href}>
+      <NavLinkStyled $isActive={$isActive} href={href}>
         <p ref={firstTitleRef}>{title}</p>
         <p ref={secondTitleRef}>{title}</p>
       </NavLinkStyled>

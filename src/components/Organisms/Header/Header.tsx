@@ -5,7 +5,6 @@ import LogoMary from '@/components/Atomes/Icons/LogoMary';
 import Link from 'next/link';
 import SectionXL from '@/components/Atomes/Sections/SectionXL/SectionXL';
 import NavLink from '@/components/Atomes/NavLink/NavLink';
-import { Colors } from '@/theme/colors';
 
 const HeaderContainer = styled.header`
   padding-block: 20px;
@@ -13,7 +12,6 @@ const HeaderContainer = styled.header`
   top: 0;
   width: 100%;
   z-index: 99;
-  background-color: ${Colors.WHITE};
 `;
 const NavigationContainer = styled.nav`
   display: flex;
@@ -29,7 +27,7 @@ const ListContainer = styled.ul`
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <SectionXL as={'div'}>
+      <SectionXL $bgcolor={'transparent'} as={'div'}>
         <NavigationContainer>
           <Link href={'/'}>
             <LogoMary width={'61'} height={'39'} />
