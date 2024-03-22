@@ -8,8 +8,9 @@ import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
 import Image from 'next/image';
 import { Colors } from '@/theme/colors';
 import { useGSAP } from '@gsap/react';
+import { CustomEase } from 'gsap/CustomEase';
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, CustomEase);
 
 const Container = styled.aside`
   max-height: 100vh;
@@ -29,6 +30,10 @@ const ContainerText = styled.div`
   z-index: 35;
   h1 {
     max-width: 1200px;
+    div {
+      transform: translateY(100px) rotate(4deg);
+      opacity: 0;
+    }
     > span:nth-child(2) {
       color: ${Colors.PRIMARY} !important;
     }
@@ -87,15 +92,18 @@ const HomeHero: React.FC = () => {
 
   useGSAP(
     () => {
+      CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
       const splitTitle = new SplitText('h1', { type: 'words' });
-      gsap.from(splitTitle.words, {
-        y: 100,
-        rotate: -4,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 2,
-        ease: 'expo.out',
-      });
+      setTimeout(() => {
+        gsap.to(splitTitle.words, {
+          y: 0,
+          rotate: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 2,
+          ease: 'expo.out',
+        });
+      }, 3300);
     },
     { scope: ContainerTitleRef },
   );
