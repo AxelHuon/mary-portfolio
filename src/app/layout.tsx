@@ -3,6 +3,7 @@ import React from 'react';
 import StyledComponentsRegistry from '../../lib/registry';
 import '../theme/reset.css';
 import '../theme/font.css';
+import Header from '@/components/Organisms/Header/Header';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <Header />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

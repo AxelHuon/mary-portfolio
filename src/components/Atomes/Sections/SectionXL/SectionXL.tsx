@@ -7,6 +7,7 @@ import { Colors } from '@/theme/colors';
 interface SectionXLProps {
   children: React.ReactNode;
   bgcolor?: string;
+  as?: string;
 }
 
 const Section = styled.section<SectionXLProps>`
@@ -28,9 +29,9 @@ const ContainerSectionXL = styled.aside`
 `;
 
 const SectionXL = React.forwardRef<HTMLDivElement, SectionXLProps>(
-  ({ children, bgcolor }, ref: ForwardedRef<HTMLDivElement>) => {
+  ({ children, bgcolor, as = 'section' }, ref: ForwardedRef<HTMLDivElement>) => {
     return (
-      <Section ref={ref} bgcolor={bgcolor}>
+      <Section as={as} ref={ref} bgcolor={bgcolor}>
         <ContainerSectionXL>{children}</ContainerSectionXL>
       </Section>
     );
