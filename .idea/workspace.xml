@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery1.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery2.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery3.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery5.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery6.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/gallery.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Montserrat-VariableFont_wght.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/theme/font.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/theme/reset.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/font.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/gallery.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/colors.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "code.cleanup.on.save": "true",
     "git-widget-placeholder": "feat/hero-home",
-    "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio/public/images/gallery",
+    "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio/public/fonts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -72,8 +74,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images/gallery" />
       <recent name="$PROJECT_DIR$/public/fonts" />
+      <recent name="$PROJECT_DIR$/public/images/gallery" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/theme" />
@@ -105,16 +107,11 @@
       <workItem from="1711012733697" duration="2019000" />
       <workItem from="1711015935421" duration="646000" />
       <workItem from="1711034565924" duration="1000000" />
-      <workItem from="1711043344851" duration="5972000" />
+      <workItem from="1711043344851" duration="11049000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.d.ts" />
-      </list>
-    </option>
   </component>
 </project>
