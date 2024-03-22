@@ -82,7 +82,9 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
       );
 
       const onHoverNavLink = () => {
-        tl.restart();
+        if (!tl.isActive()) {
+          tl.restart();
+        }
       };
       if (navLinkRef.current) {
         navLinkRef.current.addEventListener('mouseenter', onHoverNavLink);

@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Atomes/Icons/LogoMary.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
