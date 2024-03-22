@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/fonts/Montserrat-VariableFont_wght.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/theme/font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/theme/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/gallery.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/colors.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +26,16 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2d58MskLXPipTb9n6CTdt0dgv3P" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -107,11 +100,14 @@
       <workItem from="1711012733697" duration="2019000" />
       <workItem from="1711015935421" duration="646000" />
       <workItem from="1711034565924" duration="1000000" />
-      <workItem from="1711043344851" duration="11049000" />
+      <workItem from="1711043344851" duration="11130000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
