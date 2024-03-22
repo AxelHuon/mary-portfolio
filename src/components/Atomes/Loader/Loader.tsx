@@ -1,19 +1,26 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Colors } from '@/theme/colors';
 
-import { IconStars, IconExplode, IconWind } from '@/components/Atomes/Icons/Icons';
+import { IconExplode, IconStars, IconWind } from '@/components/Atomes/Icons/Icons';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
+import LogoMary from '@/components/Atomes/Icons/LogoMary';
+
+gsap.registerPlugin(CustomEase);
 
 const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 9999999;
   height: 100vh;
+  position: absolute;
+  width: 100%;
   background-color: ${Colors.WHITE};
-
   &::after {
     content: '';
     position: absolute;
@@ -45,7 +52,15 @@ const LoaderImgContainer = styled.div`
   }
 `;
 
+const ContainerLogoMary = styled.div`
+  position: absolute;
+  right: -10%;
+  bottom: -20%;
+`;
+
 const Loader = () => {
+  const LoaderContainerRef = useRef<HTMLDivElement>(null);
+
   const images = [
     '/images/gallery/gallery1.webp',
     '/images/gallery/mary.webp',
@@ -76,9 +91,24 @@ const Loader = () => {
     return () => timeoutIds.forEach(timeoutId => clearTimeout(timeoutId));
   }, []);
 
+  useGSAP(() => {
+    CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
+
+    setTimeout(() => {
+      gsap.to(LoaderContainerRef.current, {
+        duration: 1,
+        translateY: '-100%',
+        ease: 'custom',
+      });
+    }, 2500);
+  });
+
   return (
-    <LoaderContainer>
+    <LoaderContainer ref={LoaderContainerRef}>
       <LoaderImgContainer>
+        <ContainerLogoMary>
+          <LogoMary width={'100px'} height={'100px'} />
+        </ContainerLogoMary>
         <IconStars
           width={51}
           height={51}
@@ -109,10 +139,8 @@ const Loader = () => {
           style={{
             position: 'absolute',
             zIndex: 1,
-
             bottom: '-6%',
             left: '50%',
-
             transform: 'translateX(-50%)',
           }}
         />
