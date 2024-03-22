@@ -67,7 +67,7 @@ export const TextTypesStyles = {
     font-family: 'Nanum Pen', serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: 150px;
+    line-height: 14px;
   `,
   BodyRegular: css`
     font-family: 'Montserrat', serif;
