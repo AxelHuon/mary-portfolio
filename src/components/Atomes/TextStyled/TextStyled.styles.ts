@@ -6,20 +6,22 @@ export const baseTextStyle = css<TextStyledProps>`
   padding: 0;
   text-align: ${props => props.$align};
   color: ${props => props.color};
-  span:nth-child(1) {
-    color: ${props => props.$spanColorOne};
-  }
-  span:nth-child(2) {
-    color: ${props => props.$spanColorTwo || props.$spanColorOne};
+  span {
+    &:nth-child(1) {
+      color: ${props => props.$spanColorOne};
+    }
+    &:nth-child(2) {
+      color: ${props => props.$spanColorTwo || props.$spanColorTwo};
+    }
   }
 `;
 
 export const TextTypesStyles = {
   LargeTitle: css`
     font-family: 'Nanum Pen', serif;
-    font-size: 175px;
+    font-size: 200px;
     font-weight: 500;
-    line-height: 150px;
+    line-height: 180px;
   `,
   MediumTitle: css`
     font-family: 'Nanum Pen', serif;
