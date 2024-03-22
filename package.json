@@ -10,6 +10,9 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "@emotion/is-prop-valid": "^1.2.2",
+        "@gsap/react": "^2.1.0",
+        "gsap": "npm:@gsap/shockingly@^3.12.5",
         "next": "14.1.0",
         "react": "^18",
         "react-dom": "^18",
