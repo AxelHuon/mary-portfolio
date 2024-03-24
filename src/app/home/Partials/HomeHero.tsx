@@ -9,18 +9,23 @@ import Image from 'next/image';
 import { Colors } from '@/theme/colors';
 import { useGSAP } from '@gsap/react';
 import { CustomEase } from 'gsap/CustomEase';
+import { device } from '@/utils/breakpoint';
 
 gsap.registerPlugin(SplitText, CustomEase);
 
 const Container = styled.aside`
-  max-height: 100vh;
+  height: 100vh;
   width: 100%;
   padding-top: 150px;
   display: flex;
+  flex-direction: column;
   gap: 20px;
   h1 {
     transform: rotate(-2deg);
   }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ContainerText = styled.div`
@@ -48,14 +53,17 @@ const ContainerText = styled.div`
 `;
 
 const ContainerImage = styled.div`
-  width: 650px;
-  height: 650px;
-  position: absolute;
-  right: 5%;
-  top: 20%;
-  transform: rotate(-2deg);
+  width: clamp(300px, 35vw, 650px);
+  height: clamp(300px, 35vw, 650px);
   background-image: url('/images/textures/blue-texture.webp');
   background-size: contain;
+  position: relative;
+  @media (${device.laptopM}) {
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-2deg);
+    right: -10%;
+    top: 40%;
+  }
   &:after {
     opacity: 0.1;
     content: '';
@@ -78,15 +86,7 @@ const ContainerImage = styled.div`
     height: auto;
   }
 `;
-export const BlueBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 9;
-  background-color: ${Colors.PRIMARY};
-`;
+
 const HomeHero: React.FC = () => {
   const ContainerTitleRef = useRef<HTMLDivElement>(null);
 

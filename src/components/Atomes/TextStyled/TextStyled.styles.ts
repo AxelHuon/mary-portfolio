@@ -1,5 +1,6 @@
 import { TextStyledProps } from '@/components/Atomes/TextStyled/TextStyled';
 import { css } from 'styled-components';
+import { device } from '@/utils/breakpoint';
 
 export const baseTextStyle = css<TextStyledProps>`
   margin: 0;
@@ -19,9 +20,13 @@ export const baseTextStyle = css<TextStyledProps>`
 export const TextTypesStyles = {
   LargeTitle: css`
     font-family: 'Nanum Pen', serif;
-    font-size: 200px;
+    font-size: clamp(75px, 15vw, 100px);
     font-weight: 500;
-    line-height: 180px;
+    line-height: clamp(40px, 10vw, 70px);
+    @media (${device.laptopM}) {
+      font-size: clamp(150px, 15vw, 175px);
+      line-height: clamp(120px, 10vw, 180px);
+    }
   `,
   MediumTitle: css`
     font-family: 'Nanum Pen', serif;

@@ -13,7 +13,7 @@ interface SectionXLProps {
 const Section = styled.section<SectionXLProps>`
   position: relative;
   width: 100%;
-  overflow: visible;
+  overflow: auto;
   background-color: ${props => props.$bgcolor || Colors.WHITE};
 `;
 
@@ -22,7 +22,7 @@ const ContainerSectionXL = styled.aside`
   @media (${device.tablet}) {
     max-width: 95%;
   }
-  @media (${device.desktopM}) {
+  @m @media (${device.desktopM}) {
     padding-inline: 0;
     max-width: 1550px;
   }

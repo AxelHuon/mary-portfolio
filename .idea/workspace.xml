@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery1.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery2.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery3.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery3.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery4.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery4.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery5.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery5.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery6.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery6.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Icons/Icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Icons/Icons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "opti/size-gallery-image",
     "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio/public/images/gallery",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -133,5 +131,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Atomes/Icons/Icons.tsx</url>
+          <line>23</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

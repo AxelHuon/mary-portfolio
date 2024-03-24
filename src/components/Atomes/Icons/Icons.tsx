@@ -26,7 +26,7 @@ export const IconStars: React.FC<IconProps> = ({
     <IconWrapper style={style}>
       <svg width={width} height={height} viewBox="0 0 81 86" fill="none">
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clip-rule="evenodd"
           d="M78.2752 21.6313C34.7661 47.9632 27.4369 51.0935 10.3114 35.6346C14.5577 50.4079 12.6185 61.1496 4.70312 72.1377C24.2922 66.1771 27.8654 71.6232 37.8103 78.4384C31.69 59.1475 40.2728 52.799 78.2752 21.6313Z"
           stroke={color}
