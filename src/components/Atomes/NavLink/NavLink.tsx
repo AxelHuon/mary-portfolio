@@ -30,8 +30,8 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
     color: ${Colors.PRIMARY};
   }
   p {
-    font-family: 'Nanum Pen', serif;
-    font-size: 25px;
+    font-family: 'Chendolle', serif;
+    font-size: 19px;
     line-height: 20px;
     &:nth-child(2) {
       > div {
@@ -48,10 +48,7 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
 
 const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
   const pathname = usePathname();
-  const props = {
-    title,
-    href,
-  };
+
   const navLinkRef = useRef<HTMLDivElement>(null);
   const firstTitleRef = useRef<HTMLParagraphElement>(null);
   const secondTitleRef = useRef<HTMLParagraphElement>(null);

@@ -1,8 +1,8 @@
 'use client';
 import HomeHero from '@/app/home/Partials/HomeHero';
-import Loader from '../components/Atomes/Loader/Loader';
 import styled from 'styled-components';
 import { useState } from 'react';
+import Loader from '@/components/Atomes/Loader/Loader';
 
 const MainContainer = styled.main<{ isLoading: boolean }>`
   overflow: ${props => (props.isLoading ? 'hidden' : 'auto')};
