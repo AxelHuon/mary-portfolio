@@ -128,7 +128,8 @@ const HomeHero: React.FC = () => {
       <Container>
         <TextContainer ref={ContainerTitleRef}>
           <TextStyled $spanColorTwo={Colors.SECONDARY} as={'h1'} type={'LargeTitle'}>
-            I’AM <span>MARY</span>, A <span>BRAND DESIGNER</span>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            I'am <span>mary</span>, a <span>Brand Designer</span>
           </TextStyled>
         </TextContainer>
         <ImageContainer>

@@ -19,9 +19,9 @@ export const baseTextStyle = css<TextStyledProps>`
 export const TextTypesStyles = {
   LargeTitle: css`
     font-family: 'Chendolle', serif;
-    font-size: clamp(100px, 15vw, 150px);
+    font-size: clamp(100px, 15vw, 175px);
     font-weight: 500;
-    line-height: clamp(100px, 15vw, 150px);
+    line-height: clamp(100px, 15vw, 175px);
     letter-spacing: 9px;
   `,
   MediumTitle: css`

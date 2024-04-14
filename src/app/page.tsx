@@ -2,11 +2,19 @@
 import HomeHero from '@/app/home/Partials/HomeHero';
 import styled from 'styled-components';
 import { useState } from 'react';
-import Loader from '@/components/Atomes/Loader/Loader';
+import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { Colors } from '@/theme/colors';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
 
-const MainContainer = styled.main<{ isLoading: boolean }>`
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
+
+const ArticleContainer = styled.article<{ isLoading: boolean }>`
   overflow: ${props => (props.isLoading ? 'hidden' : 'auto')};
-  height: 100vh;
+  min-height: 100vh;
+  background-color: ${Colors.WHITE};
 `;
 
 export default function Home() {
@@ -17,9 +25,12 @@ export default function Home() {
   }, 3000);
 
   return (
-    <MainContainer isLoading={isLoading}>
+    <ArticleContainer id="smooth-content" isLoading={isLoading}>
+      {/*
       <Loader />
+*/}
       <HomeHero />
-    </MainContainer>
+      <HomeLittleAbout />
+    </ArticleContainer>
   );
 }
