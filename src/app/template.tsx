@@ -12,12 +12,15 @@ export default function Template({ children }: { children: ReactNode }) {
       smooth: 1,
       effects: true,
       smoothTouch: 0.1,
+      normalizeScroll: true,
     });
   });
 
   return (
-    <main id="smooth-wrapper">
-      <article id="smooth-content">{children}</article>
+    <main style={{ overflow: 'hidden' }} id="smooth-wrapper">
+      <article style={{ overflow: 'hidden' }} id="smooth-content">
+        {children}
+      </article>
     </main>
   );
 }

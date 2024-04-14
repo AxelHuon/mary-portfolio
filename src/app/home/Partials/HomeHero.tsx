@@ -12,7 +12,7 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-const Container = styled.section`
+const Container = styled.div`
   padding-top: 100px;
   position: relative;
   height: 80vh;
@@ -20,7 +20,7 @@ const Container = styled.section`
   justify-content: flex-end;
 `;
 
-const ImageContainer = styled.aside`
+const ImageContainer = styled.div`
   width: 50%;
   height: 100%;
   display: flex;
@@ -36,7 +36,7 @@ const ImageContainer = styled.aside`
   }
 `;
 
-const TextContainer = styled.aside`
+const TextContainer = styled.div`
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -109,6 +109,7 @@ const HomeHero: React.FC = () => {
     () => {
       CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
       const splitTitle = new SplitText('h1', { type: 'words' });
+
       setTimeout(() => {
         gsap.to(splitTitle.words, {
           y: 0,
@@ -124,12 +125,13 @@ const HomeHero: React.FC = () => {
   );
 
   return (
-    <SectionXL $bgcolor={'transparent'}>
+    <SectionXL as={'aside'} $bgcolor={'transparent'}>
       <Container>
         <TextContainer ref={ContainerTitleRef}>
           <TextStyled $spanColorTwo={Colors.SECONDARY} as={'h1'} type={'LargeTitle'}>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-            I'am <span>mary</span>, a <span>Brand Designer</span>
+            I'am <span data-speed="clamp(0.9)">mary</span>, a{' '}
+            <span data-speed="clamp(0.4)">Brand Designer</span>
           </TextStyled>
         </TextContainer>
         <ImageContainer>
@@ -150,7 +152,13 @@ const HomeHero: React.FC = () => {
                 height={550}
               />
             </ContainerNoise>
-            <Image src={'/images/gallery/mary.webp'} alt={'Mary Image'} width={550} height={550} />
+            <Image
+              data-speed="clamp(0.8)"
+              src={'/images/gallery/mary.webp'}
+              alt={'Mary Image'}
+              width={550}
+              height={550}
+            />
           </AllImagesContainer>
         </ImageContainer>
       </Container>

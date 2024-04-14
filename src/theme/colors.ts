@@ -3,7 +3,7 @@ export const Colors = {
   SECONDARY: '#F1DAC4',
   BLACK: '#141414',
   WHITE: '#FCFCFC',
-  PRIMARY_900: '#437dbf',
+  PRIMARY_900: '#0D3F77',
   PRIMARY_800: '#588cc6',
   PRIMARY_700: '#6d9acd',
   PRIMARY_600: '#82a9d4',

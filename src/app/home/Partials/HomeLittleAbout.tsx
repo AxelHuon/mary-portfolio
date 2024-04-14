@@ -10,7 +10,7 @@ import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 gsap.registerPlugin(SplitText, DrawSVGPlugin);
 
 const ContainerLittleText = styled.section`
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,21 +18,13 @@ const ContainerLittleText = styled.section`
     margin: 0 auto;
     max-width: 70%;
     h4 {
-      z-index: 100;
       line-height: 50px;
+      z-index: 100;
     }
   }
 `;
 
-const ContainerSvg = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  path {
-  }
-`;
+const ContainerSvg = styled.div``;
 
 const HomeLittleAbout: React.FC = () => {
   const aboutTextRef = useRef<HTMLDivElement>(null);
@@ -40,13 +32,11 @@ const HomeLittleAbout: React.FC = () => {
 
   useGSAP(
     () => {
-      let paths = gsap.utils.toArray('#path');
-
       let tl = gsap.timeline({
         scrollTrigger: {
           markers: false,
           start: 'top 60%',
-          end: 'top 30%',
+          end: 'top 20%',
           trigger: aboutTextRef.current,
           scrub: true,
         },
@@ -56,20 +46,13 @@ const HomeLittleAbout: React.FC = () => {
         splitTitle.words,
         {
           opacity: 0.1,
-          y: 30,
         },
         {
           stagger: 0.2,
           duration: 2,
-          y: 0,
           opacity: 1,
         },
       );
-      gsap.to('#path', {
-        drawSVG: '0%',
-        duration: 2,
-        ease: 'none',
-      });
     },
     { scope: aboutTextRef },
   );
