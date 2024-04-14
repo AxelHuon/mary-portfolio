@@ -1,25 +1,97 @@
 'use client';
 import HomeHero from '@/app/home/Partials/HomeHero';
-import Loader from '../components/Atomes/Loader/Loader';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { Colors } from '@/theme/colors';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
+import { useGSAP } from '@gsap/react';
+import Loader from '@/components/Atomes/Loader/Loader';
 
-const MainContainer = styled.main<{ isLoading: boolean }>`
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
+
+const ArticleContainer = styled.article<{ isLoading: boolean }>`
   overflow: ${props => (props.isLoading ? 'hidden' : 'auto')};
-  height: 100vh;
+  min-height: 100vh;
+  background-color: ${Colors.WHITE};
+`;
+
+const BlueSquareContainer = styled.section`
+  min-height: 200vh;
+  position: relative;
+  .background-blue {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0%);
+    background-color: ${Colors.PRIMARY_900};
+    z-index: 0;
+  }
+`;
+
+const ContentContainer = styled.aside`
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  h2 {
+    opacity: 0;
+  }
 `;
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  const blueSquareContainerRef = useRef<HTMLDivElement>(null);
+  const contentContainerRef = useRef<HTMLDivElement>(null);
   setTimeout(() => {
     setIsLoading(false);
   }, 3000);
 
+  useGSAP(
+    () => {
+      let tlBackGround = gsap.timeline({
+        scrollTrigger: {
+          start: 'top 70%',
+          end: 'top 20%',
+          trigger: blueSquareContainerRef.current,
+          scrub: true,
+        },
+      });
+      let tlTextContent = gsap.timeline({
+        scrollTrigger: {
+          start: 'top 70%',
+          end: 'top 20%',
+          trigger: contentContainerRef.current,
+          scrub: true,
+        },
+      });
+      tlBackGround.to('.background-blue', {
+        width: '100%',
+        height: '100%',
+        backgroundColor: Colors.PRIMARY,
+      });
+      tlTextContent.to('h2', {
+        opacity: 1,
+        z: 100,
+      });
+    },
+    { scope: blueSquareContainerRef },
+  );
+
   return (
-    <MainContainer isLoading={isLoading}>
+    <ArticleContainer id="smooth-content" isLoading={isLoading}>
       <Loader />
+
       <HomeHero />
-    </MainContainer>
+      <HomeLittleAbout />
+      <BlueSquareContainer ref={blueSquareContainerRef}>
+        <div className={'background-blue'}></div>
+      </BlueSquareContainer>
+    </ArticleContainer>
   );
 }

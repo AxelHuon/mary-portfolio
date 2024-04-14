@@ -1,8 +1,8 @@
 import React, { ForwardedRef } from 'react';
 
 import styled from 'styled-components';
-import { device } from '@/utils/breakpoint';
 import { Colors } from '@/theme/colors';
+import { device } from '@/utils/breakpoint';
 
 interface SectionXLProps {
   children: React.ReactNode;
@@ -19,12 +19,18 @@ const Section = styled.section<SectionXLProps>`
 
 const ContainerSectionXL = styled.aside`
   margin: 0 auto;
-  @media (${device.tablet}) {
-    max-width: 95%;
+  max-width: 90%;
+  @media (${device.laptopM}) {
+    max-width: 1150px;
+  }
+  @media (${device.laptopL}) {
+    max-width: 1300px;
   }
   @media (${device.desktopM}) {
-    padding-inline: 0;
     max-width: 1550px;
+  }
+  @media (${device.desktopL}) {
+    max-width: 1700px;
   }
 `;
 
