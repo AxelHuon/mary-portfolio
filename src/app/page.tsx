@@ -8,6 +8,7 @@ import { Colors } from '@/theme/colors';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
 import { useGSAP } from '@gsap/react';
+import Loader from '@/components/Atomes/Loader/Loader';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
@@ -63,9 +64,7 @@ export default function Home() {
 
   return (
     <ArticleContainer isLoading={isLoading}>
-      {/*
       <Loader />
-*/}
 
       <HomeHero />
       <HomeLittleAbout />
