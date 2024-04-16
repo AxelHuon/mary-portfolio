@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="">
+    <list default="true" id="ed63e158-4de1-4d4f-ad4b-6e08eee352dd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery1.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery2.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery3.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery3.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery4.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery4.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery5.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery5.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery6.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery6.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Icons/Icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Icons/Icons.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="dev" />
+    <option name="BRANCH" value="origin/dev" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,24 +28,19 @@
     &quot;assignee&quot;: &quot;AxelHuon&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="8b0fbcbe-0e98-421f-a8eb-68834676b852" />
-        <option name="url" value="https://github.com/AxelHuon/mary-portfolio.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AxelHuon/mary-portfolio.git&quot;,
+    &quot;accountId&quot;: &quot;8b0fbcbe-0e98-421f-a8eb-68834676b852&quot;
+  }
+}</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2d58MskLXPipTb9n6CTdt0dgv3P" />
+  <component name="ProjectId" id="2f3GfgT4nEGo4vteQLhp5LpUnTo" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -55,29 +48,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio/public/images/gallery",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/axelhuon/Lab/mary-portfolio/node_modules/prettier",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save",
-    "ts.external.directory.path": "/Users/axelhuon/Lab/mary-portfolio/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/public/fonts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/node_modules/prettier&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -89,42 +77,29 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images/gallery" />
-      <recent name="$PROJECT_DIR$/public/images/textures" />
-      <recent name="$PROJECT_DIR$/public/images/texture" />
       <recent name="$PROJECT_DIR$/public/fonts" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/theme" />
-      <recent name="$PROJECT_DIR$/src/app/home/Partials" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/public/images/gallery" />
-    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a929cf29-81d7-4ed7-ad10-e11ff4d0bb38" name="Changes" comment="" />
-      <created>1709286533524</created>
+      <changelist id="ed63e158-4de1-4d4f-ad4b-6e08eee352dd" name="Changes" comment="" />
+      <created>1713022453352</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709286533524</updated>
-      <workItem from="1709286534610" duration="3408000" />
-      <workItem from="1709295405602" duration="440000" />
-      <workItem from="1709397450507" duration="652000" />
-      <workItem from="1709459960069" duration="16000" />
-      <workItem from="1710085565783" duration="2034000" />
-      <workItem from="1710408116037" duration="1777000" />
-      <workItem from="1710791614723" duration="1742000" />
-      <workItem from="1710836447768" duration="13000" />
-      <workItem from="1710870840881" duration="3148000" />
-      <workItem from="1710875845841" duration="9000" />
-      <workItem from="1711009881913" duration="419000" />
-      <workItem from="1711010547428" duration="397000" />
-      <workItem from="1711012733697" duration="2019000" />
-      <workItem from="1711015935421" duration="646000" />
-      <workItem from="1711034565924" duration="1000000" />
-      <workItem from="1711043344851" duration="11130000" />
+      <updated>1713022453352</updated>
+      <workItem from="1713022455158" duration="3218000" />
+      <workItem from="1713084006974" duration="3427000" />
+      <workItem from="1713087648996" duration="13123000" />
+      <workItem from="1713173276949" duration="517000" />
+      <workItem from="1713251352444" duration="197000" />
     </task>
     <servers />
   </component>
@@ -132,6 +107,6 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

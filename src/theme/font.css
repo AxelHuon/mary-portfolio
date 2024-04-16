@@ -11,3 +11,16 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Lemon Bird';
+  src: url('/fonts/LemonBird-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Chendolle';
+  src: url('/fonts/Chendolle.otf') format('opentype');
+  font-display: swap;
+  font-weight: auto;
+}
