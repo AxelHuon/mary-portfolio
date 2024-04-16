@@ -13,8 +13,7 @@ import Loader from '@/components/Atomes/Loader/Loader';
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
-const ArticleContainer = styled.article<{ $isLoading: boolean }>`
-  overflow: ${props => (props.$isLoading ? 'hidden' : 'auto')};
+const ArticleContainer = styled.article`
   min-height: 100vh;
   background-color: ${Colors.WHITE};
 `;
@@ -63,14 +62,17 @@ export default function Home() {
   );
 
   return (
-    <ArticleContainer $isLoading={isLoading}>
+    <ArticleContainer>
       <Loader />
-
-      <HomeHero />
-      <HomeLittleAbout />
-      <BlueSquareContainer ref={blueSquareContainerRef}>
-        <div className={'background-blue'}></div>
-      </BlueSquareContainer>
+      {!isLoading && (
+        <>
+          <HomeHero />
+          <HomeLittleAbout />
+          <BlueSquareContainer ref={blueSquareContainerRef}>
+            <div className={'background-blue'}></div>
+          </BlueSquareContainer>
+        </>
+      )}
     </ArticleContainer>
   );
 }
