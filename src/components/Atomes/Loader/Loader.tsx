@@ -16,9 +16,9 @@ const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999999;
+  z-index: 999;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   width: 100%;
   background-color: ${Colors.WHITE};
   &::after {
