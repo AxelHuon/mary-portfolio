@@ -19,9 +19,12 @@ const ContainerLittleText = styled.section`
   aside > div {
     margin: 0 auto;
     max-width: 70%;
-    h4 {
+    p {
       line-height: 50px;
       z-index: 100;
+      span {
+        font-weight: 600;
+      }
     }
   }
 `;
@@ -46,7 +49,7 @@ const HomeLittleAbout: React.FC = () => {
 
   useGSAP(
     () => {
-      const splitTitle = new SplitText('h4', { type: 'words' });
+      const splitTitle = new SplitText('p', { type: 'words' });
       gsap.set(splitTitle.words, { opacity: 0.1 });
       gsap.set('#path', { drawSVG: 0 });
       gsap.set('#circle', { drawSVG: false });
@@ -122,11 +125,11 @@ const HomeLittleAbout: React.FC = () => {
               ></path>
             </svg>
           </ContainerSvg>
-          <TextStyled $align={'center'} as={'h4'} type={'CalloutRegular'}>
+          <TextStyled $align={'center'} as={'p'} type={'CalloutRegular'}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias dignissimos dolore,
-            eligendi eum illo inventore ipsum laudantium libero minus nobis non, odio pariatur
-            praesentium quia quo sit tempora? Accusantium at deserunt, harum libero nulla pariatur
-            perspiciatis quaerat saepe sed sit.
+            eligendi eum illo inventore ipsum <span>laudantium libero</span> minus nobis non, odio
+            pariatur praesentium quia quo sit tempora? <span>Accusantium at deserunt</span>, harum
+            libero nulla pariatur perspiciatis quaerat saepe sed sit.
           </TextStyled>
         </div>
       </SectionXL>

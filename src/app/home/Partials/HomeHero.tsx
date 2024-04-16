@@ -100,26 +100,44 @@ const AllImagesContainer = styled.div`
   height: clamp(300px, 50vw, 500px);
   position: relative;
   transform: rotate(5deg);
+  img {
+    --clip: 0%;
+    clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
+  }
 `;
 
 const HomeHero: React.FC = () => {
   const ContainerTitleRef = useRef<HTMLDivElement>(null);
+  const ContainerImagesRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
+      gsap.to('img', {
+        clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%)',
+        duration: 1,
+        delay: 3.3,
+        ease: 'custom',
+        stagger: 0.3,
+      });
+    },
+    { scope: ContainerImagesRef },
+  );
 
   useGSAP(
     () => {
       CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
       const splitTitle = new SplitText('h1', { type: 'words' });
 
-      setTimeout(() => {
-        gsap.to(splitTitle.words, {
-          y: 0,
-          rotate: 0,
-          opacity: 1,
-          stagger: 0.2,
-          duration: 2,
-          ease: 'expo.out',
-        });
-      }, 3300);
+      gsap.to(splitTitle.words, {
+        y: 0,
+        rotate: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 2,
+        delay: 3.3,
+        ease: 'expo.out',
+      });
     },
     { scope: ContainerTitleRef },
   );
@@ -134,7 +152,7 @@ const HomeHero: React.FC = () => {
             <span data-speed="clamp(0.4)">Brand Designer</span>
           </TextStyled>
         </TextContainer>
-        <ImageContainer>
+        <ImageContainer ref={ContainerImagesRef}>
           <AllImagesContainer>
             <ContainerBackgroundImage>
               <Image
@@ -144,14 +162,6 @@ const HomeHero: React.FC = () => {
                 height={550}
               />
             </ContainerBackgroundImage>
-            <ContainerNoise>
-              <Image
-                src={'/images/textures/noise.gif'}
-                alt={'noise gif'}
-                width={550}
-                height={550}
-              />
-            </ContainerNoise>
             <Image
               data-speed="clamp(0.8)"
               src={'/images/gallery/mary.webp'}
