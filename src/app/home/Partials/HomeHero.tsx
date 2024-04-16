@@ -79,22 +79,6 @@ const ContainerBackgroundImage = styled.div`
   }
 `;
 
-const ContainerNoise = styled.div`
-  position: absolute;
-  left: -10%;
-  top: 4%;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  transform: scale(1.14);
-  img {
-    opacity: 0.15;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
 const AllImagesContainer = styled.div`
   width: clamp(300px, 50vw, 500px);
   height: clamp(300px, 50vw, 500px);
