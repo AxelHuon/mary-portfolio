@@ -20,6 +20,7 @@ const Section = styled.section<SectionXLProps>`
 const ContainerSectionXL = styled.aside`
   margin: 0 auto;
   max-width: 90%;
+  z-index: 999;
   @media (${device.laptopM}) {
     max-width: 1150px;
   }

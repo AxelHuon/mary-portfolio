@@ -6,8 +6,10 @@ import { Colors } from '@/theme/colors';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
+import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
+import { CustomEase } from 'gsap/CustomEase';
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, CustomEase);
 interface NavLinkProps {
   title: string;
   href: string;
@@ -18,7 +20,7 @@ interface NavLinkStyledProps {
 }
 
 const ContainerNavLink = styled.div`
-  height: 20px;
+  height: 100px;
   overflow: hidden;
 `;
 const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
@@ -30,13 +32,11 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
     color: ${Colors.PRIMARY};
   }
   p {
-    font-family: 'Chendolle', serif;
-    font-size: 19px;
-    line-height: 20px;
+    ${TextTypesStyles.LittleTitle}
     &:nth-child(2) {
       > div {
         div {
-          transform: translateY(-20px);
+          transform: translateY(-100px);
         }
       }
     }
@@ -56,6 +56,7 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
     () => {
       const splitFirstTitle = new SplitText(firstTitleRef.current);
       const splitSecondTitle = new SplitText(secondTitleRef.current);
+      CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
 
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(
@@ -63,17 +64,19 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
         { translateY: 0, duration: 0 },
         {
           duration: 0.3,
-          translateY: 20,
+          translateY: 100,
           stagger: 0.1,
+          ease: 'custom',
         },
       );
       tl.fromTo(
         splitSecondTitle.chars,
-        { translateY: -20, duration: 0 },
+        { translateY: -100, duration: 0 },
         {
           duration: 0.3,
           translateY: 0,
           stagger: 0.1,
+          ease: 'custom',
         },
         '-=0.5',
       );
