@@ -116,7 +116,6 @@ const HomeHero: React.FC = () => {
       gsap.to('img', {
         clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%)',
         duration: 1,
-        delay: 3.3,
         ease: 'custom',
         stagger: 0.3,
       });
@@ -135,7 +134,6 @@ const HomeHero: React.FC = () => {
         opacity: 1,
         stagger: 0.2,
         duration: 2,
-        delay: 3.3,
         ease: 'expo.out',
       });
     },

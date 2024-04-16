@@ -11,7 +11,7 @@ const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 20;
 `;
 const NavigationContainer = styled.nav`
   display: flex;
