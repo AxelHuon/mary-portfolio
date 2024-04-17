@@ -55,13 +55,12 @@ const TextContainer = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  transform: translateY(0%);
   @media (${device.laptopM}) {
     position: absolute;
     flex-direction: column;
     left: 0;
-    top: 50%;
     transform: translateY(-50%) rotate(-2deg);
+    top: 50%;
   }
   gap: 20px;
   z-index: 35;
@@ -138,14 +137,18 @@ const HomeHero: React.FC = () => {
     () => {
       CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
       const splitTitle = new SplitText('h1', { type: 'words' });
-      gsap.to(splitTitle.words, {
-        y: 0,
-        rotate: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 2,
-        ease: 'expo.out',
-      });
+      gsap.fromTo(
+        splitTitle.words,
+        { opacity: 0, y: 100 },
+        {
+          y: 0,
+          rotate: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 2,
+          ease: 'expo.out',
+        },
+      );
     },
     { scope: ContainerTitleRef },
   );
