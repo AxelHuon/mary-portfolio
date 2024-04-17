@@ -7,6 +7,7 @@ import { SplitText } from 'gsap/SplitText';
 import styled from 'styled-components';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 import { Colors } from '@/theme/colors';
+import { device } from '@/utils/breakpoint';
 
 gsap.registerPlugin(SplitText, DrawSVGPlugin);
 
@@ -17,10 +18,12 @@ const ContainerLittleText = styled.section`
   align-items: center;
   justify-content: center;
   aside > div {
-    margin: 0 auto;
-    max-width: 70%;
+    position: relative;
+    @media (${device.laptopM}) {
+      margin: 0 auto;
+      max-width: 70%;
+    }
     p {
-      line-height: 50px;
       z-index: 100;
       span {
         font-weight: 600;
@@ -31,9 +34,13 @@ const ContainerLittleText = styled.section`
 
 const ContainerSvg = styled.div`
   position: absolute;
-  left: 22%;
-  top: -10%;
+  top: -5%;
+  left: %;
   transform: rotate(5deg);
+  @media (max-width: ${device.laptopM}) {
+    top: -10%;
+    left: -5%;
+  }
 `;
 
 const ContainerCircle = styled.div`
@@ -41,6 +48,10 @@ const ContainerCircle = styled.div`
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
+  display: none;
+  @media (${device.laptopM}) {
+    display: block;
+  }
 `;
 
 const HomeLittleAbout: React.FC = () => {

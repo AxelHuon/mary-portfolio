@@ -8,8 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Icons/Icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Icons/Icons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/ButtonMenu/ButtonMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/ButtonMenu/ButtonMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +54,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/public/fonts&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/add-new-menu&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/axelhuon/Lab/mary-portfolio/public/images/gallery&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,6 +80,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images/gallery" />
       <recent name="$PROJECT_DIR$/public/fonts" />
     </key>
   </component>
@@ -99,7 +103,11 @@
       <workItem from="1713084006974" duration="3427000" />
       <workItem from="1713087648996" duration="13123000" />
       <workItem from="1713173276949" duration="517000" />
-      <workItem from="1713251352444" duration="197000" />
+      <workItem from="1713251352444" duration="1172000" />
+      <workItem from="1713259423090" duration="14777000" />
+      <workItem from="1713277829291" duration="8490000" />
+      <workItem from="1713339730848" duration="9000" />
+      <workItem from="1713345151116" duration="4420000" />
     </task>
     <servers />
   </component>
