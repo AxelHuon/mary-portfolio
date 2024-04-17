@@ -1,6 +1,6 @@
 // pages/index.tsx
 import React from 'react';
-import ThreeCarousel from '@/components/Organisms/ThreeCarousel/ThreeCarousel';
+import { ThreeCarousel } from '@/components/Organisms/ThreeCarousel/ThreeCarousel';
 import SectionXL from '@/components/Atomes/Sections/SectionXL/SectionXL';
 import styled from 'styled-components';
 import { Canvas, useFrame } from '@react-three/fiber';
