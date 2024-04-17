@@ -1,10 +1,15 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Colors } from '@/theme/colors';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+
+gsap.registerPlugin(useGSAP);
 
 interface ButtonMenuProps {
   onClick: () => void;
+  timeline: gsap.core.Timeline | null;
 }
 
 const BgButton = styled.button`
@@ -24,12 +29,12 @@ const BgButton = styled.button`
     width: 100%;
     height: 2px;
     background-color: ${Colors.PRIMARY};
-    &.bg__button__bar__one {
+    &:first-child {
       position: absolute;
       top: 0;
       left: 0;
     }
-    &.bg__button__bar__two {
+    &:last-child {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -37,11 +42,31 @@ const BgButton = styled.button`
   }
 `;
 
-const ButtonMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
+const ButtonMenu: React.FC<ButtonMenuProps> = ({ onClick, timeline }) => {
+  const barBtnOne = useRef<HTMLDivElement>(null);
+  const barBtnTwo = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    timeline &&
+      timeline.to(barBtnOne.current, {
+        top: '50%',
+        width: '70%',
+        rotate: -45,
+        ease: 'custom',
+        duration: 0.5,
+      });
+    timeline &&
+      timeline.to(
+        barBtnTwo.current,
+        { top: '50%', width: '70%', rotate: 45, ease: 'custom', duration: 0.3 },
+        '>-0.5',
+      );
+  }, [timeline]);
+
   return (
     <BgButton onClick={onClick}>
-      <div className={'bg__button__bar__one'}></div>
-      <div className={'bg__button__bar__two'}></div>
+      <div ref={barBtnOne}></div>
+      <div ref={barBtnTwo}></div>
     </BgButton>
   );
 };

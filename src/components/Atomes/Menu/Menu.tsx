@@ -8,20 +8,26 @@ import Image from 'next/image';
 import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
 import NavLink from '@/components/Atomes/NavLink/NavLink';
 import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
+import { device } from '@/utils/breakpoint';
 
 gsap.registerPlugin(useGSAP);
 
+interface MenuProps {
+  timeline: gsap.core.Timeline | null;
+}
+
 const Container = styled.div`
-  display: flex;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   background-color: ${Colors.WHITE};
-  top: -150%;
+  top: 0;
   align-items: center;
   left: 0;
-  z-index: 19;
+  opacity: 0;
+  display: flex;
+  z-index: -1;
   -webkit-box-shadow: 0px 21px 23px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 21px 23px 0px rgba(0, 0, 0, 0.03);
 `;
@@ -29,8 +35,11 @@ const Container = styled.div`
 const ContainerImage = styled.div`
   width: 40%;
   height: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
+  @media (${device.laptop}) {
+    display: flex;
+  }
   img {
     width: 100%;
     object-fit: cover;
@@ -48,18 +57,24 @@ const ContainerText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  width: 100%;
   height: 100%;
   position: relative;
   padding-block: 70px;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 100px;
+  padding: 40px;
+  @media (${device.laptop}) {
+    width: 60%;
+  }
+  @media (max-width: ${device.laptopL}) {
+    padding: 100px;
+  }
 `;
 
-const ContainerLinks = styled.ul`
+const ContainerListLinks = styled.ul`
   display: flex;
-  padding-top: 100px;
+  padding-top: 120px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -69,9 +84,16 @@ const ContainerLinks = styled.ul`
 
 const ContainerTextAbout = styled.div`
   display: flex;
-  align-items: flex-end;
   width: 100%;
+  gap: 5px;
+  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
+  @media (${device.mobileXL}) {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 50px;
+  }
   div {
     display: flex;
     flex-direction: column;
@@ -84,24 +106,67 @@ const NavLinkItem = styled.li<{ index: number }>`
   align-items: center;
   flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
   gap: 30px;
-  .container__num {
+  > div:first-child {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
-
     gap: 30px;
     p {
+      text-align: center;
+      @media (max-width: ${device.mobileXL}) {
+        text-align: left;
+      }
       ${TextTypesStyles.CalloutEmphasized}
       color:${Colors.PRIMARY}
     }
   }
 `;
 
-const ContainerNum = styled.div``;
-
-const Menu: React.FC = () => {
+const Menu: React.FC<MenuProps> = ({ timeline }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    timeline && timeline.to(containerRef.current, { zIndex: '99', duration: 0 });
+    timeline &&
+      timeline.to(containerRef.current, { opacity: 1, ease: 'custom', duration: 1.4 }, '>-0.3');
+    timeline &&
+      timeline.fromTo(
+        '.menu li',
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, ease: 'expo.out', duration: 1, stagger: 0.2 },
+        '>-0.3',
+      );
+    timeline &&
+      timeline.to(
+        '.menu__image__one',
+        {
+          clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%)',
+          ease: 'custom',
+          duration: 0.7,
+        },
+        '>-1.5',
+      );
+    timeline &&
+      timeline.to(
+        '.menu__image__two',
+        {
+          clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%)',
+          ease: 'custom',
+          duration: 0.7,
+        },
+        '>-0.2',
+      );
+    timeline &&
+      timeline.fromTo(
+        '.container__about div',
+        {
+          y: 30,
+          opacity: 0,
+        },
+        { opacity: 1, y: 0, ease: 'expo.out', duration: 0.8, stagger: 0.1 },
+        '>-0.7',
+      );
+  }, [timeline]);
 
   const linkItems = [
     {
@@ -141,10 +206,10 @@ const Menu: React.FC = () => {
         />
       </ContainerImage>
       <ContainerText>
-        <ContainerLinks>
+        <ContainerListLinks>
           {linkItems.map((item, i) => (
             <NavLinkItem index={i + 1} key={i}>
-              <div className={'container__num'}>
+              <div>
                 <p>0{i + 1}</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +227,7 @@ const Menu: React.FC = () => {
               <NavLink title={item.title} href={item.href} />
             </NavLinkItem>
           ))}
-        </ContainerLinks>
+        </ContainerListLinks>
         <ContainerTextAbout className={'container__about'}>
           <div>
             <TextStyled as={'p'} type={'BodyRegular'}>

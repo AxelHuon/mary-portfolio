@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed63e158-4de1-4d4f-ad4b-6e08eee352dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/gallery/gallery8.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Atomes/ButtonMenu/ButtonMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/theme/globalStyle.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/ButtonMenu/ButtonMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/ButtonMenu/ButtonMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Sections/SectionXL/SectionXL.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/TextStyled/TextStyled.styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/theme/font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/theme/reset.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +105,9 @@
       <workItem from="1713173276949" duration="517000" />
       <workItem from="1713251352444" duration="1172000" />
       <workItem from="1713259423090" duration="14777000" />
-      <workItem from="1713277829291" duration="1430000" />
+      <workItem from="1713277829291" duration="8490000" />
+      <workItem from="1713339730848" duration="9000" />
+      <workItem from="1713345151116" duration="4420000" />
     </task>
     <servers />
   </component>

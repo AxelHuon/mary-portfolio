@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
@@ -17,10 +17,11 @@ interface NavLinkProps {
 
 interface NavLinkStyledProps {
   $isActive: boolean;
+  heightText: number;
 }
 
-const ContainerNavLink = styled.div`
-  height: 100px;
+const ContainerNavLink = styled.div<{ heightText: number }>`
+  height: ${props => props.heightText}px;
   overflow: hidden;
 `;
 const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
@@ -36,7 +37,7 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
     &:nth-child(2) {
       > div {
         div {
-          transform: translateY(-100px);
+          transform: translateY(-${props => props.heightText}px);
         }
       }
     }
@@ -52,6 +53,29 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
   const navLinkRef = useRef<HTMLDivElement>(null);
   const firstTitleRef = useRef<HTMLParagraphElement>(null);
   const secondTitleRef = useRef<HTMLParagraphElement>(null);
+  const [heightText, setHeightText] = useState<number>(
+    firstTitleRef?.current?.getBoundingClientRect()?.height ?? 100,
+  );
+
+  useEffect(() => {
+    if (firstTitleRef) {
+      setHeightText(firstTitleRef?.current?.getBoundingClientRect()?.height ?? 100);
+    }
+  }, [firstTitleRef?.current?.getBoundingClientRect()?.height]);
+
+  const setHeightOnResize = () => {
+    setHeightText(
+      firstTitleRef && firstTitleRef.current
+        ? firstTitleRef.current.getBoundingClientRect().height
+        : 100,
+    );
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', setHeightOnResize);
+    return () => window.removeEventListener('resize', setHeightOnResize);
+  }, []);
+
   useGSAP(
     () => {
       const splitFirstTitle = new SplitText(firstTitleRef.current);
@@ -64,7 +88,7 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
         { translateY: 0, duration: 0 },
         {
           duration: 0.3,
-          translateY: 100,
+          translateY: heightText,
           stagger: 0.1,
           ease: 'custom',
         },
@@ -100,8 +124,8 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
 
   const $isActive = pathname === href;
   return (
-    <ContainerNavLink ref={navLinkRef}>
-      <NavLinkStyled $isActive={$isActive} href={href}>
+    <ContainerNavLink heightText={heightText} ref={navLinkRef}>
+      <NavLinkStyled heightText={heightText} $isActive={$isActive} href={href}>
         <p ref={firstTitleRef}>{title}</p>
         <p ref={secondTitleRef}>{title}</p>
       </NavLinkStyled>

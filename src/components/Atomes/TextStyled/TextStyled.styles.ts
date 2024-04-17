@@ -19,8 +19,8 @@ export const baseTextStyle = css<TextStyledProps>`
 export const TextTypesStyles = {
   LargeTitle: css`
     font-family: 'Chendolle', serif;
-    font-size: clamp(100px, 15vw, 175px);
     font-weight: 500;
+    font-size: clamp(100px, 15vw, 175px);
     line-height: clamp(100px, 15vw, 175px);
     letter-spacing: 9px;
   `,
@@ -33,8 +33,8 @@ export const TextTypesStyles = {
   LittleTitle: css`
     font-family: 'Chendolle', serif;
     font-weight: 500;
-    font-size: 100px;
-    line-height: 100px;
+    font-size: clamp(60px, 15vw, 100px);
+    line-height: clamp(60px, 15vw, 100px);
   `,
   HeadlineEmphasized: css`
     font-family: 'Chendolle', serif;
@@ -56,8 +56,8 @@ export const TextTypesStyles = {
   `,
   CalloutRegular: css`
     font-family: 'Montserrat', serif;
-    font-size: 30px;
-    line-height: initial;
+    font-size: clamp(20px, 5vw, 30px);
+    line-height: clamp(40px, 5vw, 50px);
     font-weight: 400;
   `,
   CalloutVariant: css`
