@@ -1,56 +1,78 @@
 'use client';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import LogoMary from '@/components/Atomes/Icons/LogoMary';
 import Link from 'next/link';
-import SectionXL from '@/components/Atomes/Sections/SectionXL/SectionXL';
-import NavLink from '@/components/Atomes/NavLink/NavLink';
+import ButtonMenu from '@/components/Atomes/ButtonMenu/ButtonMenu';
+import Menu from '@/components/Atomes/Menu/Menu';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { device } from '@/utils/breakpoint';
+import { CustomEase } from 'gsap/CustomEase';
 
+gsap.registerPlugin(CustomEase, useGSAP);
 const HeaderContainer = styled.header`
   padding-block: 20px;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 9999;
 `;
 const NavigationContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-const ListContainer = styled.ul`
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  margin: 0 auto;
+  z-index: 99;
+  position: relative;
+  max-width: 90%;
+  @media (${device.laptopM}) {
+    max-width: 1150px;
+  }
+  @media (${device.laptopL}) {
+    max-width: 1300px;
+  }
+  @media (${device.desktopM}) {
+    max-width: 1550px;
+  }
+  @media (${device.desktopL}) {
+    max-width: 1700px;
+  }
 `;
 
 const Header: React.FC = () => {
+  const headerContainerRef = useRef<HTMLDivElement>(null);
+  const { contextSafe } = useGSAP({ scope: headerContainerRef }); // we can just pass in a config object as the 1st parameter to make scoping simple
+  const [timeLineMenu, setTimeLineMenu] = useState<gsap.core.Timeline | null>(null);
+
+  useGSAP(() => {
+    CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
+    const timelineMenu = gsap.timeline({ paused: true });
+    setTimeLineMenu(timelineMenu);
+  });
+
+  const openMenu = contextSafe(() => {
+    if (timeLineMenu) {
+      if (timeLineMenu.progress() == 0) {
+        timeLineMenu.play();
+      } else if (timeLineMenu.progress() === 1) {
+        timeLineMenu.reverse(0);
+      }
+    }
+  });
+
   return (
-    <HeaderContainer>
-      <SectionXL $bgcolor={'transparent'} as={'div'}>
+    <>
+      <HeaderContainer ref={headerContainerRef}>
         <NavigationContainer>
           <Link href={'/'}>
             <LogoMary width={'61'} height={'39'} />
           </Link>
-          <aside>
-            <ListContainer>
-              <li>
-                <NavLink title={'Home'} href={'/'} />
-              </li>
-              <li>
-                <NavLink title={'Work'} href={'/about'} />
-              </li>
-              <li>
-                <NavLink title={'About'} href={'/works'} />
-              </li>
-              <li>
-                <NavLink title={'Contact'} href={'/contact'} />
-              </li>
-            </ListContainer>
-          </aside>
+          <ButtonMenu timeline={timeLineMenu} onClick={openMenu} />
         </NavigationContainer>
-      </SectionXL>
-    </HeaderContainer>
+      </HeaderContainer>
+      <Menu timeline={timeLineMenu} />
+    </>
   );
 };
 

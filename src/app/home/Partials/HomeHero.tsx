@@ -9,24 +9,39 @@ import Image from 'next/image';
 import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
 import { Colors } from '@/theme/colors';
 import { useGSAP } from '@gsap/react';
+import { device } from '@/utils/breakpoint';
 
 gsap.registerPlugin(SplitText, CustomEase);
 
 const Container = styled.div`
-  padding-top: 100px;
+  padding-top: 150px;
   position: relative;
-  height: 80vh;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+  height: fit-content;
+  width: 100%;
+  @media (${device.laptopM}) {
+    flex-direction: row;
+    height: 80vh;
+  }
 `;
 
 const ImageContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
   align-items: center;
+  padding: 100px 20px 0px 60px;
+  box-sizing: border-box;
+  @media (${device.laptopM}) {
+    width: 50%;
+    justify-content: flex-end;
+    padding: 0;
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -38,17 +53,28 @@ const ImageContainer = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
-  position: absolute;
+  position: relative;
   flex-direction: column;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(-2deg);
+  @media (${device.laptopM}) {
+    position: absolute;
+    flex-direction: column;
+    left: 0;
+    transform: translateY(-50%) rotate(-2deg);
+    top: 50%;
+  }
   gap: 20px;
   z-index: 35;
   h1 {
     max-width: 1200px;
     div {
       transform: translateY(100px) rotate(4deg);
+      @media (${device.laptopM}) {
+        position: absolute;
+        flex-direction: column;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(-2deg);
+      }
       opacity: 0;
     }
     > span:nth-child(2) {
@@ -73,22 +99,6 @@ const ContainerBackgroundImage = styled.div`
   height: 100%;
   transform: scale(1.14);
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const ContainerNoise = styled.div`
-  position: absolute;
-  left: -10%;
-  top: 4%;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  transform: scale(1.14);
-  img {
-    opacity: 0.15;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -127,15 +137,18 @@ const HomeHero: React.FC = () => {
     () => {
       CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
       const splitTitle = new SplitText('h1', { type: 'words' });
-
-      gsap.to(splitTitle.words, {
-        y: 0,
-        rotate: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 2,
-        ease: 'expo.out',
-      });
+      gsap.fromTo(
+        splitTitle.words,
+        { opacity: 0, y: 100 },
+        {
+          y: 0,
+          rotate: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 2,
+          ease: 'expo.out',
+        },
+      );
     },
     { scope: ContainerTitleRef },
   );

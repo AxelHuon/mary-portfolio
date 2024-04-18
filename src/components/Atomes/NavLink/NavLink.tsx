@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
@@ -6,8 +6,10 @@ import { Colors } from '@/theme/colors';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
+import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
+import { CustomEase } from 'gsap/CustomEase';
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, CustomEase);
 interface NavLinkProps {
   title: string;
   href: string;
@@ -15,10 +17,11 @@ interface NavLinkProps {
 
 interface NavLinkStyledProps {
   $isActive: boolean;
+  heightText: number;
 }
 
-const ContainerNavLink = styled.div`
-  height: 20px;
+const ContainerNavLink = styled.div<{ heightText: number }>`
+  height: ${props => props.heightText}px;
   overflow: hidden;
 `;
 const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
@@ -30,13 +33,11 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
     color: ${Colors.PRIMARY};
   }
   p {
-    font-family: 'Chendolle', serif;
-    font-size: 19px;
-    line-height: 20px;
+    ${TextTypesStyles.LittleTitle}
     &:nth-child(2) {
       > div {
         div {
-          transform: translateY(-20px);
+          transform: translateY(-${props => props.heightText}px);
         }
       }
     }
@@ -52,10 +53,34 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
   const navLinkRef = useRef<HTMLDivElement>(null);
   const firstTitleRef = useRef<HTMLParagraphElement>(null);
   const secondTitleRef = useRef<HTMLParagraphElement>(null);
+  const [heightText, setHeightText] = useState<number>(
+    firstTitleRef?.current?.getBoundingClientRect()?.height ?? 100,
+  );
+
+  useEffect(() => {
+    if (firstTitleRef) {
+      setHeightText(firstTitleRef?.current?.getBoundingClientRect()?.height ?? 100);
+    }
+  }, [firstTitleRef?.current?.getBoundingClientRect()?.height]);
+
+  const setHeightOnResize = () => {
+    setHeightText(
+      firstTitleRef && firstTitleRef.current
+        ? firstTitleRef.current.getBoundingClientRect().height
+        : 100,
+    );
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', setHeightOnResize);
+    return () => window.removeEventListener('resize', setHeightOnResize);
+  }, []);
+
   useGSAP(
     () => {
       const splitFirstTitle = new SplitText(firstTitleRef.current);
       const splitSecondTitle = new SplitText(secondTitleRef.current);
+      CustomEase.create('custom', 'M0,0 C0.85,0 0.2,1 1,1');
 
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(
@@ -63,17 +88,19 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
         { translateY: 0, duration: 0 },
         {
           duration: 0.3,
-          translateY: 20,
+          translateY: heightText,
           stagger: 0.1,
+          ease: 'custom',
         },
       );
       tl.fromTo(
         splitSecondTitle.chars,
-        { translateY: -20, duration: 0 },
+        { translateY: -100, duration: 0 },
         {
           duration: 0.3,
           translateY: 0,
           stagger: 0.1,
+          ease: 'custom',
         },
         '-=0.5',
       );
@@ -97,8 +124,8 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
 
   const $isActive = pathname === href;
   return (
-    <ContainerNavLink ref={navLinkRef}>
-      <NavLinkStyled $isActive={$isActive} href={href}>
+    <ContainerNavLink heightText={heightText} ref={navLinkRef}>
+      <NavLinkStyled heightText={heightText} $isActive={$isActive} href={href}>
         <p ref={firstTitleRef}>{title}</p>
         <p ref={secondTitleRef}>{title}</p>
       </NavLinkStyled>

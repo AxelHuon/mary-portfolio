@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ed63e158-4de1-4d4f-ad4b-6e08eee352dd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/template.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/template.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Loader/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Loader/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +48,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/fix-some-mistakes-home",
-    "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio/public/fonts",
+    "git-widget-placeholder": "fix/fix-types-fiber",
+    "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio/public/images/gallery",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,6 +74,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images/gallery" />
       <recent name="$PROJECT_DIR$/public/fonts" />
     </key>
   </component>
@@ -100,6 +98,10 @@
       <workItem from="1713087648996" duration="13123000" />
       <workItem from="1713173276949" duration="517000" />
       <workItem from="1713251352444" duration="1172000" />
+      <workItem from="1713259423090" duration="14777000" />
+      <workItem from="1713277829291" duration="8490000" />
+      <workItem from="1713339730848" duration="9000" />
+      <workItem from="1713345151116" duration="4727000" />
     </task>
     <servers />
   </component>
