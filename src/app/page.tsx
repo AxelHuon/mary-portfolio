@@ -7,6 +7,7 @@ import { SplitText } from 'gsap/SplitText';
 import { Colors } from '@/theme/colors';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
+import HomeWorks from '@/app/home/Partials/HomeWorks';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
@@ -29,7 +30,8 @@ export default function Home() {
           <>
             <HomeHero />
             <HomeLittleAbout />
-            <div style={{ height: '100vh' }}></div>
+            <HomeWorks />
+            <div style={{ height: '100vh' }} />
           </>
         )}
       </ArticleContainer>
