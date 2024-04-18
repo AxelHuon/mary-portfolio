@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ed63e158-4de1-4d4f-ad4b-6e08eee352dd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/template.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/template.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/ThreeCarousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/ThreeCarousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/declarations.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/declarations.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/types.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/util.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
