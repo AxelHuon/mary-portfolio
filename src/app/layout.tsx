@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import StyledComponentsRegistry from '../../lib/registry';
-import '../theme/reset.css';
-import '../theme/font.css';
 import Header from '@/components/Organisms/Header/Header';
+import GlobalStyle from '@/theme/globalStyle';
 
 export const metadata: Metadata = {
   title: 'Mary Bonnnancy Thomas - Portfolio',
@@ -22,6 +21,7 @@ export default function RootLayout({
     <html lang="fr">
       <body>
         <StyledComponentsRegistry>
+          <GlobalStyle />
           <Header />
           {children}
         </StyledComponentsRegistry>

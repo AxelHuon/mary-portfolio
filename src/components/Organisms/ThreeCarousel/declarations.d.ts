@@ -5,6 +5,8 @@ interface BentPlaneGeometryProps {
 
 interface MeshSineMaterialProps {
   attach?: string;
+  time?: { value: number };
+  map?: any;
 }
 
 declare namespace JSX {
