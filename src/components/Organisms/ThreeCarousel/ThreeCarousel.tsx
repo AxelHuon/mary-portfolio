@@ -1,11 +1,16 @@
 import * as THREE from 'three';
 import { Mesh } from 'three';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Canvas, ThreeEvent, useFrame } from '@react-three/fiber';
 import { Image, ScrollControls, useScroll, useTexture } from '@react-three/drei';
 import { easing } from 'maath';
 import { Colors } from '@/theme/colors';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import './util';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface RigProps {
   position?: [number, number, number];
@@ -23,12 +28,33 @@ interface BannerProps {
 }
 
 function Rig(props: RigProps) {
-  const ref = useRef<THREE.Group>(null);
+  const ref = useRef<THREE.Group>(null!);
   const scroll = useScroll();
+
+  useEffect(() => {
+    const triggerElement = document.querySelector('.HomeWorks__Container');
+    const trigger = ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+      pin: true,
+      onUpdate: self => {
+        if (ref.current) {
+          const progress = self.progress;
+          gsap.to(ref.current.rotation, {
+            y: progress * Math.PI * 2,
+            ease: 'none',
+          });
+        }
+      },
+    });
+
+    return () => trigger.kill();
+  }, []);
   useFrame((state, delta) => {
     if (ref.current && state.events && state.events.update) {
-      ref.current.rotation.y = -scroll.offset * (Math.PI * 2);
-      state.events.update();
+      ref.current.rotation.z = Math.PI / 16;
       easing.damp3(
         state.camera.position,
         [-state.pointer.x * 2, state.pointer.y + 1.5, 10],
@@ -38,7 +64,6 @@ function Rig(props: RigProps) {
       state.camera.lookAt(0, 0, 0);
     }
   });
-
   return <group ref={ref} {...props} />;
 }
 
@@ -108,7 +133,7 @@ function Banner({ position }: BannerProps) {
   const scroll = useScroll();
   useFrame((state, delta) => {
     if (ref.current && state.events && ref.current.material) {
-      const material = ref.current.material as MeshSineMaterialProps; // Cast to custom material type
+      const material = ref.current.material as MeshSineMaterialProps;
       if (material.time !== undefined) {
         material.time.value += Math.abs(scroll.delta) * 4;
       }
@@ -133,7 +158,7 @@ function Banner({ position }: BannerProps) {
 export const ThreeCarousel = () => (
   <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
     <fog attach="fog" args={[Colors.PRIMARY, 8.5, 12]} />
-    <ScrollControls pages={4} infinite>
+    <ScrollControls pages={3}>
       <Rig>
         <Carousel />
       </Rig>
