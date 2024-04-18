@@ -1,16 +1,11 @@
 import * as THREE from 'three';
 import { extend } from '@react-three/fiber';
 
-// Création de BentPlaneGeometry qui hérite de THREE.PlaneGeometry
-export class BentPlaneGeometry extends THREE.PlaneGeometry {
-  constructor(
-    radius: number,
-    width: number,
-    height: number,
-    widthSegments: number,
-    heightSegments: number,
-  ) {
-    super(width, height, widthSegments, heightSegments);
+// Paul West @prisoner849 https://discourse.threejs.org/u/prisoner849
+// https://discourse.threejs.org/t/simple-curved-plane/26647/10
+class BentPlaneGeometry extends THREE.PlaneGeometry {
+  constructor(radius: any, ...args: any) {
+    super(...args);
     let p = this.parameters;
     let hw = p.width * 0.5;
     let a = new THREE.Vector2(-hw, 0);
@@ -37,19 +32,24 @@ export class BentPlaneGeometry extends THREE.PlaneGeometry {
   }
 }
 
-// Création de MeshSineMaterial qui hérite de THREE.MeshBasicMaterial
-export class MeshSineMaterial extends THREE.MeshBasicMaterial {
-  time: { value: number };
+interface MeshSineMaterialParameters extends THREE.MeshBasicMaterialParameters {
+  time?: { value: number };
+}
 
-  constructor(parameters: THREE.MeshBasicMaterialParameters = {}) {
+// Classe MeshSineMaterial
+export class MeshSineMaterial extends THREE.MeshBasicMaterial {
+  time: { value: number }; // Déclaration de la propriété time
+  constructor(parameters: MeshSineMaterialParameters = {}) {
     super(parameters);
     this.setValues(parameters);
-    this.time = { value: 0 };
+    this.time = parameters.time !== undefined ? parameters.time : { value: 0 }; // Initialisation de la propriété time
   }
-
   onBeforeCompile(shader: THREE.Shader) {
     shader.uniforms.time = this.time;
-    shader.vertexShader = `uniform float time; ${shader.vertexShader}`;
+    shader.vertexShader = `
+      uniform float time;
+      ${shader.vertexShader}
+    `;
     shader.vertexShader = shader.vertexShader.replace(
       '#include <begin_vertex>',
       `vec3 transformed = vec3(position.x, position.y + sin(time + uv.x * PI * 4.0) / 4.0, position.z);`,
@@ -57,5 +57,4 @@ export class MeshSineMaterial extends THREE.MeshBasicMaterial {
   }
 }
 
-// Extension de @react-three/fiber avec les nouveaux matériaux
 extend({ MeshSineMaterial, BentPlaneGeometry });

@@ -1,12 +1,12 @@
 // ThreeCarousel.tsx
 import * as THREE from 'three';
+import { Mesh } from 'three';
 import { useRef, useState } from 'react';
-import { Canvas, useFrame, ThreeEvent } from '@react-three/fiber';
+import { Canvas, ThreeEvent, useFrame } from '@react-three/fiber';
 import { Image, ScrollControls, useScroll, useTexture } from '@react-three/drei';
 import { easing } from 'maath';
 import { Colors } from '@/theme/colors';
 import './util';
-import { Mesh } from 'three';
 
 interface RigProps {
   position?: [number, number, number];
@@ -16,14 +16,13 @@ interface RigProps {
 
 interface CardProps {
   url: string;
-  [key: string]: any; // Pour passer d'autres props dynamiquement au composant Image
+  [key: string]: any;
 }
 
 interface BannerProps {
   position?: [number, number, number];
 }
 
-// Définition du composant Rig
 function Rig(props: RigProps) {
   const ref = useRef<THREE.Group>(null);
   const scroll = useScroll();
@@ -104,28 +103,28 @@ function Card({ url, ...props }: CardProps) {
   );
 }
 
-// Définition du composant Banner
-function Banner(props: BannerProps) {
+function Banner({ position }: BannerProps) {
   const ref = useRef<Mesh>(null!);
-
-  const texture = useTexture('/images/gallery/works.png');
+  const texture = useTexture('/images/gallery/works.svg');
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   const scroll = useScroll();
   useFrame((state, delta) => {
-    if (Array.isArray(ref?.current?.material)) {
-      if (ref.current && ref.current.material?.map) {
-        ref.current.material.time.value += Math.abs(scroll.delta) * 4;
-        ref.current.material.map.offset.x += delta / 2;
+    if (ref.current && state.events && ref.current.material) {
+      const material = ref.current.material as MeshSineMaterialProps; // Cast to custom material type
+      if (material.time !== undefined) {
+        material.time.value += Math.abs(scroll.delta) * 4;
       }
+      material.map.offset.x += delta / 2;
     }
   });
+
   return (
-    <mesh ref={ref} {...props}>
+    <mesh ref={ref} position={position}>
       <cylinderGeometry args={[1.6, 1.6, 0.14, 128, 16, true]} />
       <meshSineMaterial
         map={texture}
-        mapAnisotropy={16}
-        mapRepeat={[30, 1]}
+        map-anisotropy={16}
+        map-repeat={[30, 1]}
         side={THREE.DoubleSide}
         toneMapped={false}
       />
@@ -133,7 +132,6 @@ function Banner(props: BannerProps) {
   );
 }
 
-// Composant ThreeCarousel principal
 export const ThreeCarousel = () => (
   <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
     <fog attach="fog" args={[Colors.PRIMARY, 8.5, 12]} />
