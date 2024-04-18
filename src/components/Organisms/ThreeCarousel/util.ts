@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { extend } from '@react-three/fiber';
 
-// Création de BentPlaneGeometry qui hérite de THREE.PlaneGeometry
 export class BentPlaneGeometry extends THREE.PlaneGeometry {
   constructor(
     radius: number,
@@ -37,7 +36,6 @@ export class BentPlaneGeometry extends THREE.PlaneGeometry {
   }
 }
 
-// Création de MeshSineMaterial qui hérite de THREE.MeshBasicMaterial
 export class MeshSineMaterial extends THREE.MeshBasicMaterial {
   time: { value: number };
 
@@ -57,5 +55,4 @@ export class MeshSineMaterial extends THREE.MeshBasicMaterial {
   }
 }
 
-// Extension de @react-three/fiber avec les nouveaux matériaux
 extend({ MeshSineMaterial, BentPlaneGeometry });

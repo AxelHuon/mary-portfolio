@@ -1,4 +1,3 @@
-// ThreeCarousel.tsx
 import * as THREE from 'three';
 import { useRef, useState } from 'react';
 import { Canvas, useFrame, ThreeEvent } from '@react-three/fiber';
@@ -98,7 +97,6 @@ function Card({ url, ...props }: CardProps) {
       onPointerOut={pointerOut}
       {...props}
     >
-      {/* Utilisation de BentPlaneGeometry avec les arguments spécifiés */}
       <bentPlaneGeometry attach="geometry" args={[0.1, 1, 1, 20, 20]} />
     </Image>
   );
@@ -107,18 +105,17 @@ function Card({ url, ...props }: CardProps) {
 // Définition du composant Banner
 function Banner(props: BannerProps) {
   const ref = useRef<Mesh>(null!);
-
   const texture = useTexture('/images/gallery/works.png');
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   const scroll = useScroll();
-  useFrame((state, delta) => {
+  /*  useFrame((state, delta) => {
     if (Array.isArray(ref?.current?.material)) {
       if (ref.current && ref.current.material?.map) {
         ref.current.material.time.value += Math.abs(scroll.delta) * 4;
         ref.current.material.map.offset.x += delta / 2;
       }
     }
-  });
+  }); */
   return (
     <mesh ref={ref} {...props}>
       <cylinderGeometry args={[1.6, 1.6, 0.14, 128, 16, true]} />
