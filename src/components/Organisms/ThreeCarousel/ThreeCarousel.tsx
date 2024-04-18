@@ -6,6 +6,8 @@ import { Image, ScrollControls, useScroll, useTexture } from '@react-three/drei'
 import { easing } from 'maath';
 import { Colors } from '@/theme/colors';
 import './util';
+import { Mesh } from 'three';
+
 interface RigProps {
   position?: [number, number, number];
   rotation?: [number, number, number];
@@ -104,15 +106,17 @@ function Card({ url, ...props }: CardProps) {
 
 // Définition du composant Banner
 function Banner(props: BannerProps) {
-  const ref = useRef<THREE.Mesh>(null);
+  const ref = useRef<Mesh>(null!);
 
   const texture = useTexture('/images/gallery/works.png');
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   const scroll = useScroll();
   useFrame((state, delta) => {
-    if (ref.current && ref.current.material.map) {
-      ref.current.material.time.value += Math.abs(scroll.delta) * 4;
-      ref.current.material.map.offset.x += delta / 2;
+    if (Array.isArray(ref?.current?.material)) {
+      if (ref.current && ref.current.material?.map) {
+        ref.current.material.time.value += Math.abs(scroll.delta) * 4;
+        ref.current.material.map.offset.x += delta / 2;
+      }
     }
   });
   return (

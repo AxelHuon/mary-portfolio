@@ -22,7 +22,8 @@
         ],
         "paths": {
             "@/*": ["./src/*"]
-        }
+        },
+        "typeRoots": ["node_modules/@three"]
     },
     "include": [
         "next-env.d.ts",
