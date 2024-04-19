@@ -8,6 +8,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  overflow: 'hidden';
 `;
 
 const HomeWorks: React.FC = () => {

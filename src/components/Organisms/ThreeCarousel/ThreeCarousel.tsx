@@ -10,6 +10,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './util';
 
+const styles = {
+  threeCarousel: {
+    overflow: 'hidden',
+    scroll,
+  },
+};
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface RigProps {
@@ -156,9 +163,9 @@ function Banner({ position }: BannerProps) {
 }
 
 export const ThreeCarousel = () => (
-  <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
+  <Canvas camera={{ position: [0, 0, 100], fov: 15 }} style={styles.threeCarousel}>
     <fog attach="fog" args={[Colors.PRIMARY, 8.5, 12]} />
-    <ScrollControls pages={3}>
+    <ScrollControls pages={3} style={{ overflow: 'hidden' }}>
       <Rig>
         <Carousel />
       </Rig>
