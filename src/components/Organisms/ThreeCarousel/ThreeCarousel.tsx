@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Mesh } from 'three';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { Canvas, ThreeEvent, useFrame } from '@react-three/fiber';
 import { Image, ScrollControls, useScroll, useTexture } from '@react-three/drei';
 import { easing } from 'maath';
@@ -9,11 +9,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './util';
+import { useGSAP } from '@gsap/react';
+import { works } from '@/data/works';
+import { useWorkContext } from '@/context/workContext';
 
 const styles = {
   threeCarousel: {
     overflow: 'hidden',
-    scroll,
+    height: '100vh',
   },
 };
 
@@ -27,6 +30,8 @@ interface RigProps {
 
 interface CardProps {
   url: string;
+  title: string;
+  alt: string;
   [key: string]: any;
 }
 
@@ -36,16 +41,14 @@ interface BannerProps {
 
 function Rig(props: RigProps) {
   const ref = useRef<THREE.Group>(null!);
-  const scroll = useScroll();
 
-  useEffect(() => {
+  useGSAP(() => {
     const triggerElement = document.querySelector('.HomeWorks__Container');
     const trigger = ScrollTrigger.create({
       trigger: triggerElement,
       start: 'top top',
       end: 'bottom bottom',
       scrub: true,
-      pin: true,
       onUpdate: self => {
         if (ref.current) {
           const progress = self.progress;
@@ -74,31 +77,34 @@ function Rig(props: RigProps) {
   return <group ref={ref} {...props} />;
 }
 
-// Définition du composant Carousel
 function Carousel({ radius = 1.4, count = 8 }) {
   return (
     <>
-      {Array.from({ length: count }, (_, i) => (
-        <Card
-          key={i}
-          url={`/images/gallery/gallery${Math.floor(i % 6) + 1}.webp`}
-          position={[
-            Math.sin((i / count) * Math.PI * 2) * radius,
-            0,
-            Math.cos((i / count) * Math.PI * 2) * radius,
-          ]}
-          rotation={[0, Math.PI + (i / count) * Math.PI * 2, 0]}
-        />
-      ))}
+      {works.map((item, index) => {
+        count = works.length;
+        return (
+          <Card
+            alt={item.slug}
+            title={item.title}
+            key={index}
+            url={item.urlImage}
+            position={[
+              Math.sin((index / count) * Math.PI * 2) * radius,
+              0,
+              Math.cos((index / count) * Math.PI * 2) * radius,
+            ]}
+            rotation={[0, Math.PI + (index / count) * Math.PI * 2, 0]}
+          />
+        );
+      })}
     </>
   );
 }
 
-// Définition du composant Card
-
 function Card({ url, ...props }: CardProps) {
   const ref = useRef<THREE.Mesh>(null);
   const [hovered, hover] = useState(false);
+  const { setCurrentWorkHover } = useWorkContext();
 
   const pointerOver = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
@@ -109,7 +115,10 @@ function Card({ url, ...props }: CardProps) {
 
   useFrame((state, delta) => {
     if (ref.current) {
-      // Assurez-vous que les propriétés `scale` et `material` existent sur l'objet référencé
+      if (hovered) {
+        // @ts-ignore
+        setCurrentWorkHover(works?.find(element => element?.slug === ref.current?.alt) ?? null);
+      }
       if (ref.current.scale && ref.current.material) {
         easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta);
         easing.damp(ref.current.material, 'radius', hovered ? 0.25 : 0.1, 0.2, delta);
@@ -120,6 +129,7 @@ function Card({ url, ...props }: CardProps) {
 
   return (
     <Image
+      onPointerLeave={() => setCurrentWorkHover(null)}
       ref={ref}
       url={url}
       transparent
