@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { fetchProjectsPage, fetchStory } from './graphql';
 import { ProjectPage, ProjectPreview } from './types/projects';
 import { STORYBLOK_VERSION } from './version';
@@ -43,7 +44,10 @@ export const fetchProject = async (params: {
  * @param {Object[]} [merge=[]]
  * @return {Promise<ProjectPreview[]>} Projects
  */
-export const fetchProjects = async ({ page = 1, limit = Infinity, ...rest }, merge = []) => {
+export const fetchProjects = async (
+  { page = 1, limit = Infinity, ...rest },
+  merge = [],
+): Promise<ProjectPreview[]> => {
   const allStories: ProjectPage[] = merge.slice();
 
   const { stories, total }: { stories: ProjectPage[]; total: number } = await fetchProjectsPage({

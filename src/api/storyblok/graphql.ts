@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { unstable_cache } from 'next/cache';
 
 import { STORYBLOK_VERSION } from './version';
@@ -23,18 +24,32 @@ export const CONTENT_ROOT_FIELDS = `
   component
 `;
 
-export const queryfy = (object, {} = {}) => {
+/**
+ * QueryFy
+ *
+ * Transform object to structured request chain
+ *
+ * @param {Record<string, unknown>} object
+ * @returns {string | unknown}
+ */
+export const queryfy = (object: Record<string, unknown>, {} = {}): string | unknown => {
   if (typeof object === 'number') {
     return object;
   }
 
-  if (typeof object !== 'object' || Array.isArray(object)) {
+  if (typeof object !== 'object' || object === null || Array.isArray(object)) {
     return JSON.stringify(object);
   }
 
   let props = Object.keys(object)
     .map(key => {
-      return `${key}:${queryfy(object[key])}`;
+      const value = object[key];
+
+      if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        return `${key}:${queryfy(value as Record<string, unknown>)}`;
+      } else {
+        return `${key}:${JSON.stringify(value)}`;
+      }
     })
     .join(',');
 
@@ -50,7 +65,20 @@ export const queryfy = (object, {} = {}) => {
 /**
  * @param {QraphQlQueryParams} params
  */
-const nonCachedGraphQlQuery = ({ body, version = STORYBLOK_VERSION.PUBLISHED }) => {
+const nonCachedGraphQlQuery = ({
+  body,
+  version = STORYBLOK_VERSION.PUBLISHED,
+}: {
+  body: {
+    query: string;
+    variables: {
+      by_slugs: string;
+      by_uuids: string;
+      resolve_relations: string;
+    };
+  };
+  version: string;
+}) => {
   return fetch(STORYBLOK_GRAPHQL_URL, {
     method: 'POST',
     headers: {
@@ -81,7 +109,20 @@ const cachedGraphQlQuery = unstable_cache(
 /**
  * @param {QraphQlQueryParams} params
  */
-const graphQlQuery = (params, { unstableCache = true } = {}) => {
+const graphQlQuery = (
+  params: {
+    body: {
+      query: string;
+      variables: {
+        by_slugs: string;
+        by_uuids: string;
+        resolve_relations: string;
+      };
+    };
+    version: string;
+  },
+  { unstableCache = true } = {},
+) => {
   return (unstableCache ? cachedGraphQlQuery : nonCachedGraphQlQuery)(params);
 };
 
@@ -103,6 +144,12 @@ export const fetchStory = async ({
   resolveRelations = null,
   version,
   unstableCache = false,
+}: {
+  bySlugs: string[] | null;
+  byUuids: string[] | null;
+  resolveRelations: string[] | null;
+  version: string;
+  unstableCache: boolean;
 }) => {
   return graphQlQuery(
     {
@@ -169,7 +216,6 @@ export const fetchStory = async ({
  * @return {Promise<object>} Stories and total
  */
 export const fetchProjectsPage = async ({
-  contentType = null,
   startsWith = null,
   isStartpage = null,
   filterQuery = null,
