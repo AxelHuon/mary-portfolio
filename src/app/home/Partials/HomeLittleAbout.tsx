@@ -102,7 +102,7 @@ const HomeLittleAbout: React.FC = () => {
 
   return (
     <ContainerLittleText>
-      <SectionXL>
+      <SectionXL $bgcolor={'transparent'}>
         <div ref={aboutTextRef}>
           <ContainerCircle>
             <svg width="1072" height="458" fill="none" viewBox="0 0 1072 458">

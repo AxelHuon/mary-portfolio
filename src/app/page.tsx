@@ -4,19 +4,19 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import { Colors } from '@/theme/colors';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
 import HomeWorks from '@/app/home/Partials/HomeWorks';
 import Head from 'next/head';
 import { WorkProvider } from '@/context/workContext';
+import Loader from '@/components/Atomes/Loader/Loader';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
-const ArticleContainer = styled.article`
+const ArticleContainer = styled.div`
   min-height: 100vh;
-  background-color: ${Colors.WHITE};
+  background-color: transparent;
 `;
 
 export default function Home() {
@@ -38,6 +38,7 @@ export default function Home() {
         <link rel="preload" href="/images/gallery/mary.webp" as="image" />
         <link rel="preload" href="/images/textures/blue-texture.webp" as="image" />
       </Head>
+      <Loader />
       <ArticleContainer>
         {!isLoading && (
           <>

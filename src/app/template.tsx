@@ -3,9 +3,14 @@ import gsap from 'gsap';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { useGSAP } from '@gsap/react';
 import { ReactNode } from 'react';
-import Loader from '@/components/Atomes/Loader/Loader';
+import styled from 'styled-components';
+import { Colors } from '@/theme/colors';
 
-gsap.registerPlugin(ScrollSmoother);
+gsap.registerPlugin(ScrollSmoother, useGSAP);
+
+const Main = styled.main`
+  background-color: ${Colors.WHITE};
+`;
 
 export default function Template({ children }: { children: ReactNode }) {
   useGSAP(() => {
@@ -19,12 +24,11 @@ export default function Template({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <Loader />
-      <main style={{ overflow: 'hidden' }} id="smooth-wrapper">
+      <Main className={'main_container'} style={{ overflow: 'hidden' }} id="smooth-wrapper">
         <article style={{ overflow: 'hidden' }} id="smooth-content">
           {children}
         </article>
-      </main>
+      </Main>
     </>
   );
 }

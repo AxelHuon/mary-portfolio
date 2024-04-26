@@ -12,6 +12,7 @@ import './util';
 import { useGSAP } from '@gsap/react';
 import { works } from '@/data/works';
 import { useWorkContext } from '@/context/workContext';
+import { useRouter } from 'next/navigation';
 
 const styles = {
   threeCarousel: {
@@ -32,6 +33,7 @@ interface CardProps {
   url: string;
   title: string;
   alt: string;
+  href: string;
   [key: string]: any;
 }
 
@@ -84,6 +86,7 @@ function Carousel({ radius = 1.4, count = 8 }) {
         count = works.length;
         return (
           <Card
+            href={item.slug}
             alt={item.slug}
             title={item.title}
             key={index}
@@ -104,8 +107,8 @@ function Carousel({ radius = 1.4, count = 8 }) {
 function Card({ url, ...props }: CardProps) {
   const ref = useRef<THREE.Mesh>(null);
   const [hovered, hover] = useState(false);
-  const { setCurrentWorkHover } = useWorkContext();
-
+  const { currentWorkHover, setCurrentWorkHover } = useWorkContext();
+  const router = useRouter();
   const pointerOver = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     hover(true);
@@ -117,7 +120,8 @@ function Card({ url, ...props }: CardProps) {
     if (ref.current) {
       if (hovered) {
         // @ts-ignore
-        setCurrentWorkHover(works?.find(element => element?.slug === ref.current?.alt) ?? null);
+        const currentWork = works?.find(element => element?.slug === ref.current?.alt);
+        setCurrentWorkHover(currentWork ?? null);
       }
       if (ref.current.scale && ref.current.material) {
         easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta);
@@ -127,11 +131,16 @@ function Card({ url, ...props }: CardProps) {
     }
   });
 
+  const handleClickImage = () => {
+    router.push(`works/${props.href}`);
+  };
+
   return (
     <Image
       onPointerLeave={() => setCurrentWorkHover(null)}
       ref={ref}
       url={url}
+      onClick={() => handleClickImage()}
       transparent
       side={THREE.DoubleSide}
       onPointerOver={pointerOver}
@@ -173,7 +182,7 @@ function Banner({ position }: BannerProps) {
 }
 
 export const ThreeCarousel = () => (
-  <Canvas camera={{ position: [0, 0, 100], fov: 15 }} style={styles.threeCarousel}>
+  <Canvas camera={{ position: [0, 0, 100], fov: 14 }} style={styles.threeCarousel}>
     <fog attach="fog" args={[Colors.PRIMARY, 8.5, 12]} />
     <ScrollControls pages={3} style={{ overflow: 'hidden' }}>
       <Rig>

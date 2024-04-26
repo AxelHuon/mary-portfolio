@@ -167,6 +167,7 @@ const HomeHero: React.FC = () => {
           <AllImagesContainer>
             <ContainerBackgroundImage>
               <Image
+                priority={true}
                 src={'/images/textures/blue-texture.webp'}
                 alt={'Blue Texture'}
                 width={550}
@@ -174,6 +175,7 @@ const HomeHero: React.FC = () => {
               />
             </ContainerBackgroundImage>
             <Image
+              priority={true}
               data-speed="clamp(0.8)"
               src={'/images/gallery/mary.webp'}
               alt={'Mary Image'}

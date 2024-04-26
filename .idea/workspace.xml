@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed63e158-4de1-4d4f-ad4b-6e08eee352dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/context/workContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/works.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/works/[slug]/not-found.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/works/[slug]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery7.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery7.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/gallery8.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/gallery/gallery8.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/gallery/works.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeHero.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeWorks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeWorks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/template.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/template.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Loader/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Loader/Loader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/ThreeCarousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/ThreeCarousel/ThreeCarousel.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +85,10 @@
       <recent name="$PROJECT_DIR$/public/images/gallery" />
       <recent name="$PROJECT_DIR$/public/fonts" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/works/[slug]" />
+      <recent name="$PROJECT_DIR$/src/app" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -112,12 +114,24 @@
       <workItem from="1713277829291" duration="8490000" />
       <workItem from="1713339730848" duration="9000" />
       <workItem from="1713345151116" duration="4727000" />
-      <workItem from="1713771482289" duration="134000" />
+      <workItem from="1713771482289" duration="11228000" />
+      <workItem from="1714029191301" duration="12417000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
