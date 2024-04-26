@@ -143,3 +143,116 @@ export const fetchStory = async ({
       : null;
   });
 };
+
+/**
+ * @typedef {Object} FetchProjectsParams
+ * @property {ContentType|null} [contentType=null]
+ * @property {string|null} [startsWith=null]
+ * @property {boolean|null} [isStartpage=null]
+ * @property {Object|null} [filterQuery=null]
+ * @property {Object|null} [filterQueryV2=null]
+ * @property {string[]|null} [excludingFields=null]
+ * @property {string|null} [sortBy=null]
+ * @property {string[]|null} [resolveRelations=null]
+ * @property {StoryblokVersion} [version=STORYBLOK_VERSION.PUBLISHED]
+ * @property {number} [page=1]
+ * @property {number} [perPage=25]
+ * @property {number} [limit=Infinity]
+ * @property {Boolean} unstableCache
+ */
+
+/**
+ * Fetch Stories using GraphQL API
+ *
+ * @async
+ * @param {FetchProjectsParams} params
+ * @return {Promise<object>} Stories and total
+ */
+export const fetchProjectsPage = async ({
+  contentType = null,
+  startsWith = null,
+  isStartpage = null,
+  filterQuery = null,
+  filterQueryV2 = null,
+  excludingFields = null,
+  sortBy = null,
+  resolveRelations = null,
+  version = STORYBLOK_VERSION.PUBLISHED,
+  page = 1,
+  perPage = 25,
+  limit = Infinity,
+  unstableCache = false,
+}) => {
+  const requestName = 'ProjectItems';
+
+  const fields = `
+    ${ITEM_ROOT_FIELDS}
+    content {
+      ${CONTENT_ROOT_FIELDS}
+      title
+      image {
+        filename
+        alt
+      }
+    }
+  `;
+
+  return graphQlQuery(
+    {
+      body: {
+        query: /* graphql */ `
+        query GetStories(
+          $starts_with: String,
+          $is_startpage: String,
+          ${filterQuery ? `$filter_query: JsonScalar,` : ''}
+          $excluding_fields: String,
+          $sort_by: String,
+          $resolve_relations: String,
+          $page: Int,
+          $per_page: Int,
+        ) {
+          ${requestName}(
+            starts_with: $starts_with,
+            is_startpage: $is_startpage,
+            ${filterQuery ? 'filter_query: $filter_query,' : ''},
+            ${filterQueryV2 ? `filter_query_v2: ${queryfy(filterQueryV2)},` : ''}
+            excluding_fields: $excluding_fields,
+            sort_by: $sort_by,
+            resolve_relations: $resolve_relations,
+            page: $page,
+            per_page: $per_page,
+          ) {
+            items {
+              ${fields}
+            }
+            total
+          }
+        }
+      `,
+        variables: {
+          starts_with: startsWith,
+          is_startpage: isStartpage === null ? '' : String(isStartpage),
+          filter_query: filterQuery === null ? undefined : filterQuery,
+          excluding_fields: excludingFields ? excludingFields.join(',') : '',
+          sort_by: sortBy === null ? '' : sortBy,
+          resolve_relations: resolveRelations ? resolveRelations.join(',') : '',
+          page,
+          per_page: perPage - Math.max(0, page * perPage - (limit || Infinity)),
+        },
+      },
+      version,
+    },
+    {
+      unstableCache,
+    },
+  ).then(result => {
+    return {
+      stories:
+        result?.data && result?.data[requestName]?.items ? result?.data[requestName]?.items : [],
+      total:
+        result?.data && result?.data[requestName]?.total
+          ? result?.data[requestName]?.total || 0
+          : 0,
+    };
+  });
+};

@@ -15,3 +15,12 @@ export interface ProjectContent {
     alt: string;
   };
 }
+
+export interface ProjectPreview {
+  full_slug: string;
+  title: string;
+  image: {
+    filename: string;
+    alt: string;
+  };
+}

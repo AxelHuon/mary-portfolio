@@ -17,11 +17,11 @@ interface NavLinkProps {
 
 interface NavLinkStyledProps {
   $isActive: boolean;
-  heightText: number;
+  $heightText: number;
 }
 
-const ContainerNavLink = styled.div<{ heightText: number }>`
-  height: ${props => props.heightText}px;
+const ContainerNavLink = styled.div<{ $heightText: number }>`
+  height: ${props => props.$heightText}px;
   overflow: hidden;
 `;
 const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
@@ -37,7 +37,7 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
     &:nth-child(2) {
       > div {
         div {
-          transform: translateY(-${props => props.heightText}px);
+          transform: translateY(-${props => props.$heightText}px);
         }
       }
     }
@@ -124,8 +124,8 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
 
   const $isActive = pathname === href;
   return (
-    <ContainerNavLink heightText={heightText} ref={navLinkRef}>
-      <NavLinkStyled heightText={heightText} $isActive={$isActive} href={href}>
+    <ContainerNavLink $heightText={heightText} ref={navLinkRef}>
+      <NavLinkStyled $heightText={heightText} $isActive={$isActive} href={href}>
         <p ref={firstTitleRef}>{title}</p>
         <p ref={secondTitleRef}>{title}</p>
       </NavLinkStyled>
