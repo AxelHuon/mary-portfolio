@@ -15,7 +15,7 @@ const Main = styled.main`
 export default function Template({ children }: { children: ReactNode }) {
   useGSAP(() => {
     ScrollSmoother.create({
-      smooth: 1,
+      smooth: 2,
       effects: true,
       smoothTouch: 0.1,
       normalizeScroll: true,

@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useWorkContext } from '@/context/workContext';
-import { Works } from '@/data/works';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,16 +12,13 @@ const ContainerCarousel = styled.section`
   position: relative;
 `;
 
-const ContainerSection = styled.div<{ currentWorkHover: Works | null }>`
+const ContainerSection = styled.div`
   max-height: 500vh;
   height: 500vh;
-  transition: 0.2s background-color ease-in;
 `;
 
 const HomeWorks: React.FC = () => {
-  const { currentWorkHover } = useWorkContext();
   const sectionRef = useRef<HTMLDivElement>(null);
-  const sectionRefGlobal = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -32,8 +27,7 @@ const HomeWorks: React.FC = () => {
         opacity: 1,
         duration: 1,
         scrollTrigger: {
-          markers: true,
-          start: 'top 50%',
+          start: 'top 80%',
           end: 'top 0%',
           trigger: sectionRef.current,
           scrub: true,
@@ -52,7 +46,7 @@ const HomeWorks: React.FC = () => {
   );
 
   return (
-    <ContainerSection currentWorkHover={currentWorkHover} ref={sectionRefGlobal}>
+    <ContainerSection>
       <ContainerCarousel ref={sectionRef}>
         <ThreeCarousel />
       </ContainerCarousel>
