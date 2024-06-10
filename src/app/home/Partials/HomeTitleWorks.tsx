@@ -76,7 +76,6 @@ const HomeTitleWorks: React.FC = () => {
       stagger: 0.2,
       y: 0,
       scrollTrigger: {
-        markers: true,
         start: 'top +=200px',
         end: 'top -=2000px',
         trigger: containerRef.current,
