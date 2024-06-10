@@ -5,12 +5,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
 import { useGSAP } from '@gsap/react';
+import { SplitText } from 'gsap/SplitText';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.div`
-  height: 500vh;
   width: 100%;
+  height: 250vh;
   position: relative;
 `;
 const BoxAbsolute = styled.div`
@@ -25,11 +26,17 @@ const BoxAbsolute = styled.div`
 `;
 
 const ContainerText = styled.div`
-  height: 100%;
+  height: 100vh;
   position: relative;
   z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-inline: 10%;
-  opacity: 0;
+  h3 div {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 `;
 const BoxOpacity = styled.div`
   opacity: 0;
@@ -44,6 +51,7 @@ const HomeTitleWorks: React.FC = () => {
   const boxOpacityRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    const splitTitle = new SplitText('h3', { type: 'words' });
     gsap.to(boxRef.current, {
       width: '100%',
       height: '100%',
@@ -57,25 +65,27 @@ const HomeTitleWorks: React.FC = () => {
     });
     gsap.to(titleRef.current, {
       scrollTrigger: {
-        start: 'top +=400px',
-        trigger: titleRef.current,
+        start: 'top top',
+        trigger: containerRef.current,
         scrub: true,
         pin: true,
       },
     });
-    gsap.to(titleRef.current, {
+    gsap.to(splitTitle.words, {
       opacity: 1,
+      stagger: 0.2,
+      y: 0,
       scrollTrigger: {
-        start: 'top 200px',
-        end: 'top 0vh',
-        trigger: boxRef.current,
+        markers: true,
+        start: 'top +=200px',
+        end: 'top -=2000px',
+        trigger: containerRef.current,
         scrub: true,
       },
     });
     gsap.to(containerRef.current, {
       opacity: 0,
       scrollTrigger: {
-        markers: true,
         trigger: boxOpacityRef.current,
         end: 'top +=80vh',
         scrub: true,
