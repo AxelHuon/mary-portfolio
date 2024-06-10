@@ -20,7 +20,7 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   background-color: ${Colors.WHITE};
   top: 0;
   align-items: center;
