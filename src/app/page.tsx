@@ -9,6 +9,7 @@ import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
 import HomeWorks from '@/app/home/Partials/HomeWorks';
 import Head from 'next/head';
 import { WorkProvider } from '@/context/workContext';
+import HomeTitleWorks from '@/app/home/Partials/HomeTitleWorks';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
@@ -30,6 +31,7 @@ export default function Home() {
         <>
           <HomeHero />
           <HomeLittleAbout />
+          <HomeTitleWorks />
           <WorkProvider>
             <HomeWorks />
           </WorkProvider>
