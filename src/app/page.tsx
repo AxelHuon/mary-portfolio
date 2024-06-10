@@ -9,7 +9,6 @@ import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
 import HomeWorks from '@/app/home/Partials/HomeWorks';
 import Head from 'next/head';
 import { WorkProvider } from '@/context/workContext';
-import HomeTitleWorks from '@/app/home/Partials/HomeTitleWorks';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
@@ -27,22 +26,10 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <link rel="preload" href="/images/gallery/gallery1.webp" as="image" />
-        <link rel="preload" href="/images/gallery/gallery2.webp" as="image" />
-        <link rel="preload" href="/images/gallery/gallery3.webp" as="image" />
-        <link rel="preload" href="/images/gallery/gallery4.webp" as="image" />
-        <link rel="preload" href="/images/gallery/gallery5.webp" as="image" />
-        <link rel="preload" href="/images/gallery/gallery6.webp" as="image" />
-        <link rel="preload" href="/images/gallery/gallery7.webp" as="image" />
-        <link rel="preload" href="/images/gallery/mary.webp" as="image" />
-        <link rel="preload" href="/images/textures/blue-texture.webp" as="image" />
-      </Head>
       <ArticleContainer>
         <>
           <HomeHero />
           <HomeLittleAbout />
-          <HomeTitleWorks />
           <WorkProvider>
             <HomeWorks />
           </WorkProvider>

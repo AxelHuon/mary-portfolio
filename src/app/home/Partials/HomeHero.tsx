@@ -60,7 +60,7 @@ const TextContainer = styled.div`
     flex-direction: column;
     left: 0;
     transform: translateY(-50%) rotate(-2deg);
-    top: 50%;
+    top: 70%;
   }
   gap: 20px;
   z-index: 35;
