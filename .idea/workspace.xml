@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed63e158-4de1-4d4f-ad4b-6e08eee352dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeTitleWorks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeWorks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeWorks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/template.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/template.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +84,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
       </set>
     </attachedChunks>
   </component>
@@ -110,7 +106,8 @@
       <workItem from="1713339730848" duration="9000" />
       <workItem from="1713345151116" duration="4727000" />
       <workItem from="1713771482289" duration="11228000" />
-      <workItem from="1714029191301" duration="16550000" />
+      <workItem from="1714029191301" duration="18496000" />
+      <workItem from="1714221164388" duration="14000" />
     </task>
     <servers />
   </component>
