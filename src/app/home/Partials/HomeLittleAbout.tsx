@@ -35,7 +35,7 @@ const ContainerLittleText = styled.section`
 const ContainerSvg = styled.div`
   position: absolute;
   top: -5%;
-  left: %;
+  left: 2%;
   transform: rotate(5deg);
   @media (max-width: ${device.laptopM}) {
     top: -10%;
@@ -102,7 +102,7 @@ const HomeLittleAbout: React.FC = () => {
 
   return (
     <ContainerLittleText>
-      <SectionXL>
+      <SectionXL $bgcolor={'transparent'}>
         <div ref={aboutTextRef}>
           <ContainerCircle>
             <svg width="1072" height="458" fill="none" viewBox="0 0 1072 458">

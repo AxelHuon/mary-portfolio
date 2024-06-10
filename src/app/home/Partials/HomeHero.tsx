@@ -60,7 +60,7 @@ const TextContainer = styled.div`
     flex-direction: column;
     left: 0;
     transform: translateY(-50%) rotate(-2deg);
-    top: 50%;
+    top: 70%;
   }
   gap: 20px;
   z-index: 35;
@@ -167,6 +167,7 @@ const HomeHero: React.FC = () => {
           <AllImagesContainer>
             <ContainerBackgroundImage>
               <Image
+                priority={true}
                 src={'/images/textures/blue-texture.webp'}
                 alt={'Blue Texture'}
                 width={550}
@@ -174,6 +175,7 @@ const HomeHero: React.FC = () => {
               />
             </ContainerBackgroundImage>
             <Image
+              priority={true}
               data-speed="clamp(0.8)"
               src={'/images/gallery/mary.webp'}
               alt={'Mary Image'}
