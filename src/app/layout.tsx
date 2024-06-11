@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import StyledComponentsRegistry from '../../lib/registry';
-import Header from '@/components/Organisms/Header/Header';
 import GlobalStyle from '@/theme/globalStyle';
+import { ScrollProvider } from '@/context/ScollContext';
+import Header from '@/components/Organisms/Header/Header';
 
 export const metadata: Metadata = {
   title: 'Mary Bonnnancy Thomas - Portfolio',
@@ -18,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <body>
         <StyledComponentsRegistry>
           <GlobalStyle />
-          <Header />
-          {children}
+          <ScrollProvider>
+            <Header />
+            {children}
+          </ScrollProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

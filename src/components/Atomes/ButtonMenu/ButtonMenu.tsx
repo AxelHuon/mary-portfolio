@@ -22,18 +22,22 @@ const BgButton = styled.button`
   width: 47px;
   position: relative;
   cursor: pointer;
+
   &:focus-visible {
     outline: none;
   }
+
   div {
     width: 100%;
     height: 2px;
     background-color: ${Colors.PRIMARY};
+
     &:first-child {
       position: absolute;
       top: 0;
       left: 0;
     }
+
     &:last-child {
       position: absolute;
       bottom: 0;

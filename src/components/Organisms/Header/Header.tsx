@@ -7,7 +7,6 @@ import ButtonMenu from '@/components/Atomes/ButtonMenu/ButtonMenu';
 import Menu from '@/components/Atomes/Menu/Menu';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { device } from '@/utils/breakpoint';
 import { CustomEase } from 'gsap/CustomEase';
 
 gsap.registerPlugin(CustomEase, useGSAP);
@@ -26,18 +25,6 @@ const NavigationContainer = styled.nav`
   z-index: 99;
   position: relative;
   max-width: 90%;
-  @media (${device.laptopM}) {
-    max-width: 1150px;
-  }
-  @media (${device.laptopL}) {
-    max-width: 1300px;
-  }
-  @media (${device.desktopM}) {
-    max-width: 1550px;
-  }
-  @media (${device.desktopL}) {
-    max-width: 1700px;
-  }
 `;
 
 const Header: React.FC = () => {

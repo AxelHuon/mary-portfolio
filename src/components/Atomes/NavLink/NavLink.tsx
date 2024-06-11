@@ -13,6 +13,7 @@ gsap.registerPlugin(SplitText, CustomEase);
 interface NavLinkProps {
   title: string;
   href: string;
+  isALink?: boolean;
 }
 
 interface NavLinkStyledProps {
@@ -24,9 +25,10 @@ const ContainerNavLink = styled.div<{ $heightText: number }>`
   height: ${props => props.$heightText}px;
   overflow: hidden;
 `;
-const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
+export const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
   text-decoration: none;
   overflow: hidden;
+  cursor: pointer;
   color: ${props => (props.$isActive ? Colors.PRIMARY : Colors.PRIMARY_300)};
   transition: color 0.15s ease-in-out;
   &:hover {
@@ -47,7 +49,7 @@ const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
   }
 `;
 
-const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
+const NavLink: React.FC<NavLinkProps> = ({ title, href, isALink = true }) => {
   const pathname = usePathname();
 
   const navLinkRef = useRef<HTMLDivElement>(null);
@@ -125,7 +127,12 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href }) => {
   const $isActive = pathname === href;
   return (
     <ContainerNavLink $heightText={heightText} ref={navLinkRef}>
-      <NavLinkStyled $heightText={heightText} $isActive={$isActive} href={href}>
+      <NavLinkStyled
+        as={isALink ? Link : 'div'}
+        $heightText={heightText}
+        $isActive={$isActive}
+        href={href}
+      >
         <p ref={firstTitleRef}>{title}</p>
         <p ref={secondTitleRef}>{title}</p>
       </NavLinkStyled>

@@ -6,9 +6,10 @@ import gsap from 'gsap';
 import { Colors } from '@/theme/colors';
 import Image from 'next/image';
 import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
-import NavLink from '@/components/Atomes/NavLink/NavLink';
 import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
 import { device } from '@/utils/breakpoint';
+import { usePathname, useRouter } from 'next/navigation';
+import { useScroll } from '@/context/ScollContext';
 
 gsap.registerPlugin(useGSAP);
 
@@ -40,13 +41,16 @@ const ContainerImage = styled.div`
   @media (${device.laptop}) {
     display: flex;
   }
+
   img {
     width: 100%;
     object-fit: cover;
     height: 50%;
+
     &.menu__image__one {
       clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
     }
+
     &.menu__image__two {
       clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 0);
     }
@@ -94,6 +98,7 @@ const ContainerTextAbout = styled.div`
     align-items: flex-end;
     gap: 50px;
   }
+
   div {
     display: flex;
     flex-direction: column;
@@ -102,29 +107,43 @@ const ContainerTextAbout = styled.div`
 `;
 
 const NavLinkItem = styled.li<{ index: number }>`
-  display: flex;
-  align-items: center;
-  flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
-  gap: 30px;
-  > div:first-child {
+  p {
+    color: ${Colors.PRIMARY};
+  }
+
+  > div,
+  > a {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
     gap: 30px;
-    p {
-      text-align: center;
-      @media (max-width: ${device.mobileXL}) {
-        text-align: left;
+    z-index: 99999;
+    position: relative;
+    text-decoration: none;
+
+    > div:first-child > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
+      gap: 30px;
+
+      > p {
+        text-align: center;
+        ${TextTypesStyles.CalloutEmphasized};
+        color: ${Colors.PRIMARY};
+        @media (max-width: ${device.mobileXL}) {
+          text-align: left;
+        }
       }
-      ${TextTypesStyles.CalloutEmphasized}
-      color:${Colors.PRIMARY}
     }
   }
 `;
 
 const Menu: React.FC<MenuProps> = ({ timeline }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
   useGSAP(() => {
     timeline && timeline.to(containerRef.current, { zIndex: '99', duration: 0 });
     timeline &&
@@ -175,17 +194,30 @@ const Menu: React.FC<MenuProps> = ({ timeline }) => {
     },
     {
       title: 'About',
-      href: '/',
+      href: '#about',
     },
     {
       title: 'Works',
-      href: '/',
+      href: '#works',
     },
     {
       title: 'Contact',
-      href: '/',
+      href: '#contact',
     },
   ];
+
+  const { scroll } = useScroll();
+  const handleClickButton = async (targetSection: string) => {
+    if (timeline) {
+      pathname !== '/' && router.push('/');
+      timeline.reverse();
+      setTimeout(() => {
+        if (scroll) {
+          scroll.scrollTo(targetSection, true, 'top 100px');
+        }
+      }, 1200);
+    }
+  };
 
   return (
     <Container className={'menu'} ref={containerRef}>
@@ -208,24 +240,9 @@ const Menu: React.FC<MenuProps> = ({ timeline }) => {
       <ContainerText>
         <ContainerListLinks>
           {linkItems.map((item, i) => (
-            <NavLinkItem index={i + 1} key={i}>
-              <div>
-                <p>0{i + 1}</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="7"
-                  height="8"
-                  fill="none"
-                  viewBox="0 0 7 8"
-                >
-                  <path
-                    fill="#2E6FB8"
-                    d="M.17 4.05c0-.9.14-1.62.42-2.16.3-.56.7-.96 1.2-1.2A4.03 4.03 0 013.5.33c.62 0 1.18.12 1.68.36s.9.64 1.2 1.2c.3.54.45 1.26.45 2.16 0 .88-.15 1.6-.45 2.16-.3.54-.7.94-1.2 1.2-.5.24-1.06.36-1.68.36-.62 0-1.19-.12-1.71-.36-.5-.26-.9-.66-1.2-1.2C.31 5.65.17 4.93.17 4.05z"
-                  ></path>
-                </svg>
-              </div>
-              <NavLink title={item.title} href={item.href} />
-            </NavLinkItem>
+            <div onClick={() => handleClickButton(item.href)} key={i}>
+              {item.title}
+            </div>
           ))}
         </ContainerListLinks>
         <ContainerTextAbout className={'container__about'}>
