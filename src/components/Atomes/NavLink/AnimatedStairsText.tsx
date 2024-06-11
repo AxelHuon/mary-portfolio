@@ -1,39 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
-import { Colors } from '@/theme/colors';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
-import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
 import { CustomEase } from 'gsap/CustomEase';
+import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
+import { Colors } from '@/theme/colors';
 
 gsap.registerPlugin(SplitText, CustomEase);
-interface NavLinkProps {
+
+interface AnimatedStairTextProps {
   title: string;
-  href: string;
-  isALink?: boolean;
 }
 
 interface NavLinkStyledProps {
-  $isActive: boolean;
   $heightText: number;
 }
 
 const ContainerNavLink = styled.div<{ $heightText: number }>`
   height: ${props => props.$heightText}px;
   overflow: hidden;
-`;
-export const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
-  text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-  color: ${props => (props.$isActive ? Colors.PRIMARY : Colors.PRIMARY_300)};
+  color: ${Colors.PRIMARY};
   transition: color 0.15s ease-in-out;
-  &:hover {
-    color: ${Colors.PRIMARY};
-  }
+
   p {
     ${TextTypesStyles.LittleTitle}
     &:nth-child(2) {
@@ -44,12 +36,9 @@ export const NavLinkStyled = styled(Link)<NavLinkStyledProps>`
       }
     }
   }
-  &:before {
-    content: ${props => (props.$isActive ? 'dsqdsq' : 'none')};
-  }
 `;
 
-const NavLink: React.FC<NavLinkProps> = ({ title, href, isALink = true }) => {
+const AnimatedStairsText: React.FC<AnimatedStairTextProps> = ({ title }) => {
   const pathname = usePathname();
 
   const navLinkRef = useRef<HTMLDivElement>(null);
@@ -124,20 +113,12 @@ const NavLink: React.FC<NavLinkProps> = ({ title, href, isALink = true }) => {
     { scope: navLinkRef },
   );
 
-  const $isActive = pathname === href;
   return (
     <ContainerNavLink $heightText={heightText} ref={navLinkRef}>
-      <NavLinkStyled
-        as={isALink ? Link : 'div'}
-        $heightText={heightText}
-        $isActive={$isActive}
-        href={href}
-      >
-        <p ref={firstTitleRef}>{title}</p>
-        <p ref={secondTitleRef}>{title}</p>
-      </NavLinkStyled>
+      <p ref={firstTitleRef}>{title}</p>
+      <p ref={secondTitleRef}>{title}</p>
     </ContainerNavLink>
   );
 };
 
-export default NavLink;
+export default AnimatedStairsText;

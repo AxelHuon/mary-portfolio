@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7304eef-6735-4298-9d38-3940cf98b5c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/context/ScollContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeLittleAbout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeWorks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeWorks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/template.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/template.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/works/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/works/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/ButtonMenu/ButtonMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/ButtonMenu/ButtonMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Organisms/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/AnimatedStairsText.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +53,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "feature/front-25-make-the-menu-working-on-click-on-element",
+    "git-widget-placeholder": "feature/front-27-faire-un-component-danimation-de-text-escalier-comme-dans-le",
     "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
@@ -107,7 +98,7 @@
       <workItem from="1718093599389" duration="15000" />
       <workItem from="1718093618620" duration="2848000" />
       <workItem from="1718096691329" duration="5068000" />
-      <workItem from="1718106163769" duration="4552000" />
+      <workItem from="1718106163769" duration="6642000" />
     </task>
     <servers />
   </component>
