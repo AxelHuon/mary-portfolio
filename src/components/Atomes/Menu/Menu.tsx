@@ -6,14 +6,21 @@ import gsap from 'gsap';
 import { Colors } from '@/theme/colors';
 import Image from 'next/image';
 import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
-import NavLink from '@/components/Atomes/NavLink/NavLink';
-import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
 import { device } from '@/utils/breakpoint';
+import { usePathname, useRouter } from 'next/navigation';
+import { useScroll } from '@/context/ScollContext';
+import AnimatedStairsText from '@/components/Atomes/NavLink/AnimatedStairsText';
+import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
 
 gsap.registerPlugin(useGSAP);
 
 interface MenuProps {
   timeline: gsap.core.Timeline | null;
+}
+
+interface LinkItemInterface {
+  title: string;
+  target: string;
 }
 
 const Container = styled.div`
@@ -40,13 +47,16 @@ const ContainerImage = styled.div`
   @media (${device.laptop}) {
     display: flex;
   }
+
   img {
     width: 100%;
     object-fit: cover;
     height: 50%;
+
     &.menu__image__one {
       clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
     }
+
     &.menu__image__two {
       clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 0);
     }
@@ -72,7 +82,7 @@ const ContainerText = styled.div`
   }
 `;
 
-const ContainerListLinks = styled.ul`
+const ContainerListLinks = styled.ol`
   display: flex;
   padding-top: 120px;
   flex-direction: column;
@@ -94,6 +104,7 @@ const ContainerTextAbout = styled.div`
     align-items: flex-end;
     gap: 50px;
   }
+
   div {
     display: flex;
     flex-direction: column;
@@ -103,28 +114,21 @@ const ContainerTextAbout = styled.div`
 
 const NavLinkItem = styled.li<{ index: number }>`
   display: flex;
+  gap: 26px;
   align-items: center;
-  flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
-  gap: 30px;
-  > div:first-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
-    gap: 30px;
-    p {
-      text-align: center;
-      @media (max-width: ${device.mobileXL}) {
-        text-align: left;
-      }
-      ${TextTypesStyles.CalloutEmphasized}
-      color:${Colors.PRIMARY}
-    }
+  flex-direction: ${props => (props.index % 2 ? 'row-reverse' : 'row')};
+
+  &::before {
+    color: ${Colors.PRIMARY};
+    ${TextTypesStyles.CalloutEmphasized}
+    content: '0${props => props.index}';
   }
 `;
 
 const Menu: React.FC<MenuProps> = ({ timeline }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
   useGSAP(() => {
     timeline && timeline.to(containerRef.current, { zIndex: '99', duration: 0 });
     timeline &&
@@ -168,24 +172,37 @@ const Menu: React.FC<MenuProps> = ({ timeline }) => {
       );
   }, [timeline]);
 
-  const linkItems = [
+  const linkItems: LinkItemInterface[] = [
     {
       title: 'Home',
-      href: '/',
+      target: '',
     },
     {
       title: 'About',
-      href: '/',
+      target: '#about',
     },
     {
       title: 'Works',
-      href: '/',
+      target: '#works',
     },
     {
       title: 'Contact',
-      href: '/',
+      target: '#contact',
     },
   ];
+
+  const { scroll } = useScroll();
+  const handleClickButton = async (targetSection: string) => {
+    if (timeline) {
+      pathname !== '/' && router.push('/');
+      timeline.reverse();
+      setTimeout(() => {
+        if (scroll) {
+          scroll.scrollTo(targetSection, true, 'top 100px');
+        }
+      }, 1200);
+    }
+  };
 
   return (
     <Container className={'menu'} ref={containerRef}>
@@ -208,9 +225,8 @@ const Menu: React.FC<MenuProps> = ({ timeline }) => {
       <ContainerText>
         <ContainerListLinks>
           {linkItems.map((item, i) => (
-            <NavLinkItem index={i + 1} key={i}>
+            <NavLinkItem onClick={() => handleClickButton(item.target)} index={i + 1} key={i}>
               <div>
-                <p>0{i + 1}</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="7"
@@ -224,7 +240,7 @@ const Menu: React.FC<MenuProps> = ({ timeline }) => {
                   ></path>
                 </svg>
               </div>
-              <NavLink title={item.title} href={item.href} />
+              <AnimatedStairsText title={item.title} />
             </NavLinkItem>
           ))}
         </ContainerListLinks>

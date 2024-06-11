@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7304eef-6735-4298-9d38-3940cf98b5c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/Partials/HomeTitleWorks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/Partials/HomeTitleWorks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/ScollContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/ScollContext.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,6 +31,12 @@
     &quot;accountId&quot;: &quot;8b0fbcbe-0e98-421f-a8eb-68834676b852&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -43,12 +51,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "feature/front-25-make-the-menu-working-on-click-on-element",
+    "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/axelhuon/Lab/mary-portfolio/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Users/axelhuon/Lab/mary-portfolio/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -65,7 +79,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17890.13" />
       </set>
     </attachedChunks>
   </component>
@@ -78,6 +92,12 @@
       <option name="presentableId" value="Default" />
       <updated>1718011675384</updated>
       <workItem from="1718011677375" duration="3252000" />
+      <workItem from="1718089891084" duration="629000" />
+      <workItem from="1718093501944" duration="73000" />
+      <workItem from="1718093599389" duration="15000" />
+      <workItem from="1718093618620" duration="2848000" />
+      <workItem from="1718096691329" duration="5068000" />
+      <workItem from="1718106163769" duration="6642000" />
     </task>
     <servers />
   </component>

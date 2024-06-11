@@ -46,7 +46,7 @@ const HomeWorks: React.FC = () => {
   );
 
   return (
-    <ContainerSection>
+    <ContainerSection id={'works'}>
       <ContainerCarousel ref={sectionRef}>
         <ThreeCarousel />
       </ContainerCarousel>

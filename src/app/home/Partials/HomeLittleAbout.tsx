@@ -101,7 +101,7 @@ const HomeLittleAbout: React.FC = () => {
   );
 
   return (
-    <ContainerLittleText>
+    <ContainerLittleText id={'about'}>
       <SectionXL $bgcolor={'transparent'}>
         <div ref={aboutTextRef}>
           <ContainerCircle>
