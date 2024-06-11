@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7304eef-6735-4298-9d38-3940cf98b5c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/Menu/Menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atomes/NavLink/NavLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atomes/NavLink/AnimatedStairsText.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "feature/front-27-faire-un-component-danimation-de-text-escalier-comme-dans-le",
+    "git-widget-placeholder": "feature/front-25-make-the-menu-working-on-click-on-element",
     "last_opened_file_path": "/Users/axelhuon/Lab/mary-portfolio",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
