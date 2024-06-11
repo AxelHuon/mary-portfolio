@@ -1,7 +1,7 @@
 'use client';
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
 import { Colors } from '@/theme/colors';
 import { useGSAP } from '@gsap/react';
@@ -21,7 +21,6 @@ const ScrollContext = createContext<ScrollContextProps>({ scroll: null });
 export const ScrollProvider = ({ children }: { children: ReactNode }) => {
   const [scroll, setScroll] = useState<ScrollSmoother | null>(null);
   const pathname = usePathname();
-  const router = useRouter();
 
   useGSAP(
     () => {
@@ -34,9 +33,15 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
         effects: true,
       });
       setScroll(scrollInstance);
+      return () => {
+        if (scrollInstance) {
+          scrollInstance.kill();
+        }
+      };
     },
+
     {
-      dependencies: [pathname, router],
+      dependencies: [pathname],
       revertOnUpdate: true,
     },
   );
