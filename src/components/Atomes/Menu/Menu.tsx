@@ -6,15 +6,21 @@ import gsap from 'gsap';
 import { Colors } from '@/theme/colors';
 import Image from 'next/image';
 import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
-import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
 import { device } from '@/utils/breakpoint';
 import { usePathname, useRouter } from 'next/navigation';
 import { useScroll } from '@/context/ScollContext';
+import AnimatedStairsText from '@/components/Atomes/NavLink/AnimatedStairsText';
+import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
 
 gsap.registerPlugin(useGSAP);
 
 interface MenuProps {
   timeline: gsap.core.Timeline | null;
+}
+
+interface LinkItemInterface {
+  title: string;
+  target: string;
 }
 
 const Container = styled.div`
@@ -76,7 +82,7 @@ const ContainerText = styled.div`
   }
 `;
 
-const ContainerListLinks = styled.ul`
+const ContainerListLinks = styled.ol`
   display: flex;
   padding-top: 120px;
   flex-direction: column;
@@ -107,36 +113,15 @@ const ContainerTextAbout = styled.div`
 `;
 
 const NavLinkItem = styled.li<{ index: number }>`
-  p {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  flex-direction: ${props => (props.index % 2 ? 'row-reverse' : 'row')};
+
+  &::before {
     color: ${Colors.PRIMARY};
-  }
-
-  > div,
-  > a {
-    display: flex;
-    align-items: center;
-    flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
-    gap: 30px;
-    z-index: 99999;
-    position: relative;
-    text-decoration: none;
-
-    > div:first-child > div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: ${props => (props.index % 2 ? `row` : `row-reverse`)};
-      gap: 30px;
-
-      > p {
-        text-align: center;
-        ${TextTypesStyles.CalloutEmphasized};
-        color: ${Colors.PRIMARY};
-        @media (max-width: ${device.mobileXL}) {
-          text-align: left;
-        }
-      }
-    }
+    ${TextTypesStyles.CalloutEmphasized}
+    content: '0${props => props.index}';
   }
 `;
 
@@ -187,22 +172,22 @@ const Menu: React.FC<MenuProps> = ({ timeline }) => {
       );
   }, [timeline]);
 
-  const linkItems = [
+  const linkItems: LinkItemInterface[] = [
     {
       title: 'Home',
-      href: '/',
+      target: '',
     },
     {
       title: 'About',
-      href: '#about',
+      target: '#about',
     },
     {
       title: 'Works',
-      href: '#works',
+      target: '#works',
     },
     {
       title: 'Contact',
-      href: '#contact',
+      target: '#contact',
     },
   ];
 
@@ -240,9 +225,23 @@ const Menu: React.FC<MenuProps> = ({ timeline }) => {
       <ContainerText>
         <ContainerListLinks>
           {linkItems.map((item, i) => (
-            <div onClick={() => handleClickButton(item.href)} key={i}>
-              {item.title}
-            </div>
+            <NavLinkItem onClick={() => handleClickButton(item.target)} index={i + 1} key={i}>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="7"
+                  height="8"
+                  fill="none"
+                  viewBox="0 0 7 8"
+                >
+                  <path
+                    fill="#2E6FB8"
+                    d="M.17 4.05c0-.9.14-1.62.42-2.16.3-.56.7-.96 1.2-1.2A4.03 4.03 0 013.5.33c.62 0 1.18.12 1.68.36s.9.64 1.2 1.2c.3.54.45 1.26.45 2.16 0 .88-.15 1.6-.45 2.16-.3.54-.7.94-1.2 1.2-.5.24-1.06.36-1.68.36-.62 0-1.19-.12-1.71-.36-.5-.26-.9-.66-1.2-1.2C.31 5.65.17 4.93.17 4.05z"
+                  ></path>
+                </svg>
+              </div>
+              <AnimatedStairsText title={item.title} />
+            </NavLinkItem>
           ))}
         </ContainerListLinks>
         <ContainerTextAbout className={'container__about'}>
