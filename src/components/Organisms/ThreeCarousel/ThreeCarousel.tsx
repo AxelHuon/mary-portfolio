@@ -4,14 +4,14 @@ import { useRef, useState } from 'react';
 import { Canvas, ThreeEvent, useFrame } from '@react-three/fiber';
 import { Image, ScrollControls, useScroll, useTexture } from '@react-three/drei';
 import { easing } from 'maath';
-import { Colors } from '@/theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './util';
 import { useGSAP } from '@gsap/react';
 import { works } from '@/data/works';
-import { useWorkContext } from '@/context/workContext';
+import { useWorkContext } from '@/context/WorkContext/WorkContext';
 import { useRouter } from 'next/navigation';
 
 const styles = {
