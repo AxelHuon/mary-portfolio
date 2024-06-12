@@ -1,10 +1,10 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import LogoMary from '@/components/Atomes/Icons/LogoMary';
+import LogoMary from '@/components/Atoms/Icons/LogoMary/LogoMary';
 import Link from 'next/link';
-import ButtonMenu from '@/components/Atomes/ButtonMenu/ButtonMenu';
-import Menu from '@/components/Atomes/Menu/Menu';
+import ButtonMenu from '@/components/Atoms/Buttons/ButtonMenu/ButtonMenu';
+import Menu from '@/components/Organisms/Menu/Menu';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { CustomEase } from 'gsap/CustomEase';

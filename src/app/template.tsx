@@ -4,7 +4,7 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { useGSAP } from '@gsap/react';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import { Colors } from '@/theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 
 gsap.registerPlugin(ScrollSmoother, useGSAP);
 

@@ -1,16 +1,4 @@
-export type BreakPointType =
-  | 'mobileS'
-  | 'mobileM'
-  | 'mobileL'
-  | 'mobileXL'
-  | 'tablet'
-  | 'tabletL'
-  | 'laptop'
-  | 'laptopM'
-  | 'laptopL'
-  | 'desktopM'
-  | 'desktopL'
-  | 'desktopXL';
+import { BreakPointType } from '@/utils/BreakPoints/breakpoints.t';
 
 export const size = {
   mobileS: '320px',
@@ -27,14 +15,6 @@ export const size = {
   desktopXL: '560px',
 };
 
-export const getSizeInNumber = (device: BreakPointType) => {
-  const pixelString = size[device];
-  if (pixelString) {
-    return parseInt(pixelString, 10);
-  }
-  return null;
-};
-
 export const device = {
   mobileS: `(min-width: ${size.mobileS})`,
   mobileM: `(min-width: ${size.mobileM})`,
@@ -48,4 +28,12 @@ export const device = {
   desktopM: `(min-width: ${size.desktopM})`,
   desktopL: `(min-width: ${size.desktopL})`,
   desktopXL: `(min-width: ${size.desktopXL})`,
+};
+
+export const getSizeInNumber = (device: BreakPointType) => {
+  const pixelString = size[device];
+  if (pixelString) {
+    return parseInt(pixelString, 10);
+  }
+  return null;
 };
