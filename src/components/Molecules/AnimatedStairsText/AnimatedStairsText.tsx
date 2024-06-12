@@ -5,8 +5,8 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { CustomEase } from 'gsap/CustomEase';
-import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
-import { Colors } from '@/theme/colors';
+import { TextTypesStyles } from '@/components/Atoms/TextStyled/TextStyled.styles';
+import { Colors } from '@/utils/Theme/colors';
 
 gsap.registerPlugin(SplitText, CustomEase);
 

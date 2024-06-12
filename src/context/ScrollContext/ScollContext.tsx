@@ -3,7 +3,7 @@ import React, { createContext, ReactNode, useContext, useState } from 'react';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
-import { Colors } from '@/theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

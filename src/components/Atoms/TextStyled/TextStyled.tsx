@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Colors } from '@/theme/colors';
-import { TextStyledTypes } from '@/components/Atomes/TextStyled/TextStyled.types';
-import { baseTextStyle, TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
+import { Colors } from '@/utils/Theme/colors';
+import { TextStyledTypes } from '@/components/Atoms/TextStyled/TextStyled.types';
+import { baseTextStyle, TextTypesStyles } from '@/components/Atoms/TextStyled/TextStyled.styles';
 
 export interface TextStyledProps {
   children: React.ReactNode;

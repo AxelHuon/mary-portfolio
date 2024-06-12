@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import StyledComponentsRegistry from '../../lib/registry';
-import GlobalStyle from '@/theme/globalStyle';
-import { ScrollProvider } from '@/context/ScollContext';
+import GlobalStyle from '@/utils/Theme/globalStyle';
+import { ScrollProvider } from '@/context/ScrollContext/ScollContext';
 import Header from '@/components/Organisms/Header/Header';
 
 export const metadata: Metadata = {

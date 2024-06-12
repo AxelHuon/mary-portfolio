@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { Colors } from '@/theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
-import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
+import TextStyled from '@/components/Atoms/TextStyled/TextStyled';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 

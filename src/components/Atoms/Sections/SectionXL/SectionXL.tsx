@@ -1,8 +1,8 @@
 import React, { ForwardedRef } from 'react';
 
 import styled from 'styled-components';
-import { Colors } from '@/theme/colors';
-import { device } from '@/utils/breakpoint';
+import { Colors } from '@/utils/Theme/colors';
+import { device } from '@/utils/BreakPoints/breakpoints';
 
 interface SectionXLProps {
   children: React.ReactNode;

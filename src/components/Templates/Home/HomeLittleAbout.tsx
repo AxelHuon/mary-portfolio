@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
-import SectionXL from '@/components/Atomes/Sections/SectionXL/SectionXL';
-import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
+import SectionXL from '@/components/Atoms/Sections/SectionXL/SectionXL';
+import TextStyled from '@/components/Atoms/TextStyled/TextStyled';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import styled from 'styled-components';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
-import { Colors } from '@/theme/colors';
-import { device } from '@/utils/breakpoint';
+import { Colors } from '@/utils/Theme/colors';
+import { device } from '@/utils/BreakPoints/breakpoints';
 
 gsap.registerPlugin(SplitText, DrawSVGPlugin);
 

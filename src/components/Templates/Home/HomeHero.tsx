@@ -1,15 +1,15 @@
 'use client';
 import React, { useRef } from 'react';
-import SectionXL from '@/components/Atomes/Sections/SectionXL/SectionXL';
+import SectionXL from '@/components/Atoms/Sections/SectionXL/SectionXL';
 import { SplitText } from 'gsap/SplitText';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import styled from 'styled-components';
 import Image from 'next/image';
-import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
-import { Colors } from '@/theme/colors';
+import TextStyled from '@/components/Atoms/TextStyled/TextStyled';
+import { Colors } from '@/utils/Theme/colors';
 import { useGSAP } from '@gsap/react';
-import { device } from '@/utils/breakpoint';
+import { device } from '@/utils/BreakPoints/breakpoints';
 
 gsap.registerPlugin(SplitText, CustomEase);
 

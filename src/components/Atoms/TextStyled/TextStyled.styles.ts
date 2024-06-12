@@ -1,4 +1,4 @@
-import { TextStyledProps } from '@/components/Atomes/TextStyled/TextStyled';
+import { TextStyledProps } from '@/components/Atoms/TextStyled/TextStyled';
 import { css } from 'styled-components';
 
 export const baseTextStyle = css<TextStyledProps>`

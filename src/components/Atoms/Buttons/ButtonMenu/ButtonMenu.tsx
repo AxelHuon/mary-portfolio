@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { Colors } from '@/theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 

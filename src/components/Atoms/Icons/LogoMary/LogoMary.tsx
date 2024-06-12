@@ -1,5 +1,5 @@
 import React from 'react';
-import { Colors } from '../../../theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 
 interface LogoMaryProps {
   colorMaryText?: string;

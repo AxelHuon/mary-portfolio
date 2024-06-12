@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import { Colors } from '@/theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ProjectContent } from '@/api/storyblok/types/projects';
 

@@ -1,10 +1,10 @@
 'use client';
-import HomeHero from '@/app/home/Partials/HomeHero';
+import HomeHero from '@/components/Templates/Home/HomeHero';
 import styled from 'styled-components';
-import HomeLittleAbout from '@/app/home/Partials/HomeLittleAbout';
-import HomeWorks from '@/app/home/Partials/HomeWorks';
-import { WorkProvider } from '@/context/workContext';
-import HomeTitleWorks from '@/app/home/Partials/HomeTitleWorks';
+import HomeLittleAbout from '@/components/Templates/Home/HomeLittleAbout';
+import HomeWorks from '@/components/Templates/Home/HomeWorks';
+import { WorkProvider } from '@/context/WorkContext/WorkContext';
+import HomeTitleWorks from '@/components/Templates/Home/HomeTitleWorks';
 
 const ArticleContainer = styled.div`
   min-height: 100vh;

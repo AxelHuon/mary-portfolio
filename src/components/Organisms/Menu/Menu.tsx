@@ -3,14 +3,14 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { Colors } from '@/theme/colors';
+import { Colors } from '@/utils/Theme/colors';
 import Image from 'next/image';
-import TextStyled from '@/components/Atomes/TextStyled/TextStyled';
-import { device } from '@/utils/breakpoint';
+import TextStyled from '@/components/Atoms/TextStyled/TextStyled';
+import { device } from '@/utils/BreakPoints/breakpoints';
 import { usePathname, useRouter } from 'next/navigation';
-import { useScroll } from '@/context/ScollContext';
-import AnimatedStairsText from '@/components/Atomes/NavLink/AnimatedStairsText';
-import { TextTypesStyles } from '@/components/Atomes/TextStyled/TextStyled.styles';
+import { useScroll } from '@/context/ScrollContext/ScollContext';
+import AnimatedStairsText from '@/components/Molecules/AnimatedStairsText/AnimatedStairsText';
+import { TextTypesStyles } from '@/components/Atoms/TextStyled/TextStyled.styles';
 
 gsap.registerPlugin(useGSAP);
 
