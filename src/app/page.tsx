@@ -18,14 +18,10 @@ export default function Home() {
   return (
     <>
       <ArticleContainer>
-        <>
-          <HomeHero />
-          <HomeLittleAbout />
-          <HomeTitleWorks />
-          <WorkProvider>
-            <HomeWorks />
-          </WorkProvider>
-        </>
+        <HomeHero />
+        <HomeLittleAbout />
+        <HomeTitleWorks />
+        <HomeWorks />
       </ArticleContainer>
     </>
   );
