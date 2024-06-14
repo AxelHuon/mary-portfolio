@@ -5,6 +5,7 @@ import HomeLittleAbout from '@/components/Templates/Home/HomeLittleAbout';
 import HomeWorks from '@/components/Templates/Home/HomeWorks';
 import { WorkProvider } from '@/context/WorkContext/WorkContext';
 import HomeTitleWorks from '@/components/Templates/Home/HomeTitleWorks';
+import Loader from '@/components/Atoms/Loader/Loader';
 
 const ArticleContainer = styled.div`
   min-height: 100vh;
@@ -16,6 +17,7 @@ export default function Home() {
     <>
       <ArticleContainer>
         <>
+          <Loader />
           <HomeHero />
           <HomeLittleAbout />
           <HomeTitleWorks />
