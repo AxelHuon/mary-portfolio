@@ -76,9 +76,19 @@ export const Loader: React.FC = () => {
       {
         y: 0,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.4,
         stagger: 0.2,
         ease: 'power2.out',
+
+        onComplete: () => {
+          gsap.to([...leftSideRefs.current, ...rightSideRefs.current], {
+            y: -300,
+            opacity: 1,
+            duration: 0.4,
+            ease: 'power2.in',
+            delay: 0.1,
+          });
+        },
       },
     );
   }, []);
