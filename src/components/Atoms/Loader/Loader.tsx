@@ -68,41 +68,19 @@ export const Loader: React.FC = () => {
   const logoRef = useRef(null);
 
   useEffect(() => {
-    const timeline = gsap.timeline();
+    const allElements = [...leftSideRefs.current, logoRef.current, ...rightSideRefs.current];
 
-    [...leftSideRefs.current, logoRef.current, ...rightSideRefs.current].forEach((el, index) => {
-      timeline
-        .from(el, {
-          y: 300,
-          opacity: 1,
-        })
-        .to(
-          el,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            delay: 0.02,
-            ease: 'power2.out',
-
-            onComplete: () => {
-              if (index === images.length - 1) {
-                timeline.to(
-                  [...leftSideRefs.current, ...rightSideRefs.current],
-                  {
-                    y: -300,
-                    duration: 0.5,
-                    delay: 0.02,
-                    ease: 'power2.out',
-                  },
-                  '<0.5',
-                );
-              }
-            },
-          },
-          '<0.1',
-        );
-    });
+    gsap.fromTo(
+      allElements,
+      { y: 300, opacity: 1 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: 'power2.out',
+      },
+    );
   }, []);
 
   return (
