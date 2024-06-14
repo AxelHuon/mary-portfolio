@@ -67,6 +67,8 @@ export const Loader: React.FC = () => {
   const loaderContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    document.body.classList.add('no-scroll');
+
     gsap.set(leftSideRefs.current, { y: 500 });
     gsap.set(rightSideRefs.current, { y: 500 });
     gsap.set(logoRef.current, { y: 500 });
@@ -136,9 +138,16 @@ export const Loader: React.FC = () => {
           clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
           duration: 1,
           ease: 'power3.inOut',
+          onComplete: () => {
+            document.body.classList.remove('no-scroll');
+          },
         },
         '-=0.5',
       );
+
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
   }, []);
 
   return (
