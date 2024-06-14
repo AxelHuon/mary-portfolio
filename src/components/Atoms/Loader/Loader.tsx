@@ -16,31 +16,30 @@ const images = [
 ];
 
 const LoaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  z-index: 9999;
+  position: fixed;
+  width: 100vw;
   height: 100vh;
   background-color: ${Colors.WHITE};
+  pointer-events: none;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 `;
 
 const LoaderWrapper = styled.div`
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-  gap: 2rem;
+  width: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 50px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 `;
 
 const LoaderImageContainer = styled.div`
-  width: 100%;
-  max-width: 250px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  position: relative;
+  flex: 1;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   img {
     width: 100%;
     height: 100%;
@@ -55,7 +54,6 @@ const LoaderLogo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   svg {
     width: 100%;
     height: 100%;
@@ -63,43 +61,80 @@ const LoaderLogo = styled.div`
 `;
 
 export const Loader: React.FC = () => {
+  const logoRef = useRef<HTMLDivElement | null>(null);
+  const loaderWrapperRef = useRef<HTMLDivElement | null>(null);
   const leftSideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rightSideRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const logoRef = useRef<HTMLDivElement | null>(null);
+  const loaderContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const allElements = [...leftSideRefs.current, logoRef.current, ...rightSideRefs.current].filter(
-      Boolean,
-    ) as HTMLDivElement[];
+    // Initial state setup
+    gsap.set(leftSideRefs.current, { y: 500 });
+    gsap.set(rightSideRefs.current, { y: 500 });
+    gsap.set(loaderWrapperRef.current, { x: 500 });
 
-    gsap.fromTo(
-      allElements,
-      { y: 300, opacity: 1 },
-      {
+    const timeline = gsap.timeline({ delay: 1 });
+
+    timeline
+      .to(leftSideRefs.current, {
         y: 0,
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.2,
-        ease: 'power2.out',
-        onComplete: () => {
-          gsap.to(
-            [...leftSideRefs.current, ...rightSideRefs.current].filter(Boolean) as HTMLDivElement[],
-            {
-              y: -300,
-              opacity: 1,
-              duration: 0.4,
-              ease: 'power2.in',
-              delay: 0.1,
-            },
-          );
+        duration: 1.5,
+        stagger: 0.05,
+        ease: 'power3.inOut',
+      })
+      .to(
+        rightSideRefs.current,
+        {
+          y: 0,
+          duration: 1.5,
+          stagger: 0.05,
+          ease: 'power3.inOut',
         },
-      },
-    );
+        '-=1.5',
+      )
+      .to(
+        loaderWrapperRef.current,
+        {
+          x: 0,
+          duration: 3,
+          ease: 'power3.inOut',
+        },
+        '-=2.5',
+      )
+      .to(
+        leftSideRefs.current,
+        {
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.inOut',
+        },
+        '-=1',
+      )
+      .to(
+        rightSideRefs.current,
+        {
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.inOut',
+        },
+        '-=1',
+      )
+      .to(
+        loaderContainerRef.current,
+        {
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+          duration: 1,
+          ease: 'power3.inOut',
+        },
+        '-=0.5',
+      );
   }, []);
 
   return (
-    <LoaderContainer>
-      <LoaderWrapper>
+    <LoaderContainer ref={loaderContainerRef}>
+      <LoaderWrapper ref={loaderWrapperRef}>
         {images.slice(0, 3).map((image, index) => (
           <LoaderImageContainer key={index} ref={el => (leftSideRefs.current[index] = el)}>
             <Image src={image} alt="gallery" width={250} height={300} />
