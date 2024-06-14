@@ -9,9 +9,9 @@ import { SplitText } from 'gsap/SplitText';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Container = styled.div`
+const Container = styled.section`
   width: 100%;
-  height: 250vh;
+  height: 100vh !important;
   position: relative;
 `;
 const BoxAbsolute = styled.div`
@@ -38,12 +38,14 @@ const ContainerText = styled.div`
     transform: translateY(20px);
   }
 `;
+
 const BoxOpacity = styled.div`
   opacity: 0;
   position: absolute;
-  top: 400vh;
+  top: 100vh;
   height: 100vh;
 `;
+
 const HomeTitleWorks: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -66,6 +68,7 @@ const HomeTitleWorks: React.FC = () => {
     gsap.to(titleRef.current, {
       scrollTrigger: {
         start: 'top top',
+        end: 'bottom 0%',
         trigger: containerRef.current,
         scrub: true,
         pin: true,
@@ -77,7 +80,6 @@ const HomeTitleWorks: React.FC = () => {
       y: 0,
       scrollTrigger: {
         start: 'top +=200px',
-        end: 'top -=2000px',
         trigger: containerRef.current,
         scrub: true,
       },
@@ -85,9 +87,11 @@ const HomeTitleWorks: React.FC = () => {
     gsap.to(containerRef.current, {
       opacity: 0,
       scrollTrigger: {
-        trigger: boxOpacityRef.current,
-        end: 'top +=80vh',
+        trigger: titleRef.current,
+        start: 'bottom 10%',
+        end: 'bottom 0%',
         scrub: true,
+        pin: true,
       },
     });
   }, {});
@@ -100,7 +104,7 @@ const HomeTitleWorks: React.FC = () => {
           emotion.
         </TextStyled>
       </ContainerText>
-      <BoxOpacity ref={boxOpacityRef}></BoxOpacity>
+      <BoxOpacity ref={boxOpacityRef} />
     </Container>
   );
 };

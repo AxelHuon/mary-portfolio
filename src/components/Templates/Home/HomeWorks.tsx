@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { WorkProvider } from '@/context/WorkContext/WorkContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,11 +47,13 @@ const HomeWorks: React.FC = () => {
   );
 
   return (
-    <ContainerSection id={'works'}>
-      <ContainerCarousel ref={sectionRef}>
-        <ThreeCarousel />
-      </ContainerCarousel>
-    </ContainerSection>
+    <WorkProvider>
+      <ContainerSection id={'works'}>
+        <ContainerCarousel ref={sectionRef}>
+          <ThreeCarousel />
+        </ContainerCarousel>
+      </ContainerSection>
+    </WorkProvider>
   );
 };
 
