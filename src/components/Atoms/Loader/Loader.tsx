@@ -63,12 +63,14 @@ const LoaderLogo = styled.div`
 `;
 
 export const Loader: React.FC = () => {
-  const leftSideRefs = useRef([]);
-  const rightSideRefs = useRef([]);
-  const logoRef = useRef(null);
+  const leftSideRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rightSideRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const logoRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const allElements = [...leftSideRefs.current, logoRef.current, ...rightSideRefs.current];
+    const allElements = [...leftSideRefs.current, logoRef.current, ...rightSideRefs.current].filter(
+      Boolean,
+    ) as HTMLDivElement[];
 
     gsap.fromTo(
       allElements,
@@ -79,15 +81,17 @@ export const Loader: React.FC = () => {
         duration: 0.4,
         stagger: 0.2,
         ease: 'power2.out',
-
         onComplete: () => {
-          gsap.to([...leftSideRefs.current, ...rightSideRefs.current], {
-            y: -300,
-            opacity: 1,
-            duration: 0.4,
-            ease: 'power2.in',
-            delay: 0.1,
-          });
+          gsap.to(
+            [...leftSideRefs.current, ...rightSideRefs.current].filter(Boolean) as HTMLDivElement[],
+            {
+              y: -300,
+              opacity: 1,
+              duration: 0.4,
+              ease: 'power2.in',
+              delay: 0.1,
+            },
+          );
         },
       },
     );
