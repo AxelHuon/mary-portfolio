@@ -48,12 +48,11 @@ const LoaderImageContainer = styled.div`
 `;
 
 const LoaderLogo = styled.div`
-  width: 100%;
-  max-width: 250px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  flex: 1;
+
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
   svg {
     width: 100%;
     height: 100%;
@@ -71,6 +70,7 @@ export const Loader: React.FC = () => {
     // Initial state setup
     gsap.set(leftSideRefs.current, { y: 500 });
     gsap.set(rightSideRefs.current, { y: 500 });
+    gsap.set(logoRef.current, { y: 500 });
     gsap.set(loaderWrapperRef.current, { x: 500 });
 
     const timeline = gsap.timeline({ delay: 1 });
@@ -84,6 +84,16 @@ export const Loader: React.FC = () => {
       })
       .to(
         rightSideRefs.current,
+        {
+          y: 0,
+          duration: 1.5,
+          stagger: 0.05,
+          ease: 'power3.inOut',
+        },
+        '-=1.5',
+      )
+      .to(
+        logoRef.current,
         {
           y: 0,
           duration: 1.5,
