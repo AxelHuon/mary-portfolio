@@ -18,7 +18,7 @@ const ContainerSection = styled.div`
   height: 500vh;
 `;
 
-const HomeWorks: React.FC = () => {
+const HomeWorks: React.FC = ({ projects }: { projects: ProjectPreview[] }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -50,7 +50,7 @@ const HomeWorks: React.FC = () => {
     <WorkProvider>
       <ContainerSection id={'works'}>
         <ContainerCarousel ref={sectionRef}>
-          <ThreeCarousel />
+          <ThreeCarousel projects={projects} />
         </ContainerCarousel>
       </ContainerSection>
     </WorkProvider>

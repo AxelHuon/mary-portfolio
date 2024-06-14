@@ -10,9 +10,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './util';
 import { useGSAP } from '@gsap/react';
-import { works } from '@/data/works';
 import { useWorkContext } from '@/context/WorkContext/WorkContext';
 import { useRouter } from 'next/navigation';
+import { ProjectPreview } from '@/api/storyblok/types/projects';
 
 const styles = {
   threeCarousel: {
@@ -29,7 +29,14 @@ interface RigProps {
   children?: React.ReactNode;
 }
 
+interface CarouselProps {
+  radius: number;
+  count: number;
+  projects: ProjectPreview[];
+}
+
 interface CardProps {
+  projects: ProjectPreview[];
   url: string;
   title: string;
   alt: string;
@@ -79,18 +86,19 @@ function Rig(props: RigProps) {
   return <group ref={ref} {...props} />;
 }
 
-function Carousel({ radius = 1.4, count = 8 }) {
+function Carousel({ radius = 1.4, count = 8, projects }: CarouselProps) {
   return (
     <>
-      {works.map((item, index) => {
-        count = works.length;
+      {projects.map((item, index) => {
+        count = projects.length;
         return (
           <Card
-            href={item.slug}
-            alt={item.slug}
+            projects={projects}
+            href={item.full_slug}
+            alt={item.full_slug}
             title={item.title}
             key={index}
-            url={item.urlImage}
+            url={item.image.filename}
             position={[
               Math.sin((index / count) * Math.PI * 2) * radius,
               0,
@@ -104,7 +112,7 @@ function Carousel({ radius = 1.4, count = 8 }) {
   );
 }
 
-function Card({ url, ...props }: CardProps) {
+function Card({ url, projects, ...props }: CardProps) {
   const ref = useRef<THREE.Mesh>(null);
   const [hovered, hover] = useState(false);
   const { currentWorkHover, setCurrentWorkHover } = useWorkContext();
@@ -120,7 +128,7 @@ function Card({ url, ...props }: CardProps) {
     if (ref.current) {
       if (hovered) {
         // @ts-ignore
-        const currentWork = works?.find(element => element?.slug === ref.current?.alt);
+        const currentWork = projects?.find(element => element?.full_slug === ref.current?.alt);
         setCurrentWorkHover(currentWork ?? null);
       }
       if (ref.current.scale && ref.current.material) {
@@ -135,11 +143,13 @@ function Card({ url, ...props }: CardProps) {
     router.push(`works/${props.href}`);
   };
 
+  const proxyUrl = `/api${url.replace('https://a.storyblok.com', '')}`;
+
   return (
     <Image
       onPointerLeave={() => setCurrentWorkHover(null)}
       ref={ref}
-      url={url}
+      url={proxyUrl}
       onClick={() => handleClickImage()}
       transparent
       side={THREE.DoubleSide}
@@ -181,12 +191,12 @@ function Banner({ position }: BannerProps) {
   );
 }
 
-export const ThreeCarousel = () => (
+export const ThreeCarousel = ({ projects }: { projects: ProjectPreview[] }) => (
   <Canvas camera={{ position: [0, 0, 100], fov: 14 }} style={styles.threeCarousel}>
     <fog attach="fog" args={[Colors.PRIMARY, 8.5, 12]} />
     <ScrollControls pages={3} style={{ overflow: 'hidden' }}>
       <Rig>
-        <Carousel />
+        <Carousel projects={projects} />
       </Rig>
       <Banner position={[0, -0.15, 0]} />
     </ScrollControls>
