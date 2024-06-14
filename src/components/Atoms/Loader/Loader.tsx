@@ -20,7 +20,7 @@ const LoaderContainer = styled.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: ${Colors.WHITE};
+  background-color: ${Colors.PRIMARY};
   pointer-events: none;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 `;
@@ -67,7 +67,6 @@ export const Loader: React.FC = () => {
   const loaderContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Initial state setup
     gsap.set(leftSideRefs.current, { y: 500 });
     gsap.set(rightSideRefs.current, { y: 500 });
     gsap.set(logoRef.current, { y: 500 });
@@ -151,7 +150,7 @@ export const Loader: React.FC = () => {
           </LoaderImageContainer>
         ))}
         <LoaderLogo ref={logoRef}>
-          <LogoMary />
+          <LogoMary colorMaryText="#ffffff" />
         </LoaderLogo>
         {images.slice(3, 6).map((image, index) => (
           <LoaderImageContainer key={index} ref={el => (rightSideRefs.current[index] = el)}>
