@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Colors } from '@/utils/Theme/colors';
