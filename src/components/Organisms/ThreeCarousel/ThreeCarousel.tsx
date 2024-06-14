@@ -30,8 +30,8 @@ interface RigProps {
 }
 
 interface CarouselProps {
-  radius: number;
-  count: number;
+  radius?: number;
+  count?: number;
   projects: ProjectPreview[];
 }
 

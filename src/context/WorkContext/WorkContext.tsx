@@ -1,15 +1,15 @@
+import { ProjectPreview } from '@/api/storyblok/types/projects';
 import React, { createContext, ReactNode, useContext, useState } from 'react';
-import { Works } from '@/data/works';
 
 interface ContextType {
-  currentWorkHover: Works | null;
-  setCurrentWorkHover: React.Dispatch<React.SetStateAction<Works | null>>;
+  currentWorkHover: ProjectPreview | null;
+  setCurrentWorkHover: React.Dispatch<React.SetStateAction<ProjectPreview | null>>;
 }
 
 const WorkContext = createContext<ContextType | undefined>(undefined);
 
 export const WorkProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [currentWorkHover, setCurrentWorkHover] = useState<Works | null>(null);
+  const [currentWorkHover, setCurrentWorkHover] = useState<ProjectPreview | null>(null);
 
   return (
     <WorkContext.Provider value={{ currentWorkHover, setCurrentWorkHover }}>

@@ -24,7 +24,7 @@ const ContainerSection = styled.div`
 const HomeWorks: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const [projects, setProjects]: ProjectPreview[] = useState([]);
+  const [projects, setProjects] = useState<ProjectPreview[] | null>(null);
 
   useEffect(() => {
     const setupProjects = async () => {
@@ -66,7 +66,7 @@ const HomeWorks: React.FC = () => {
     { scope: sectionRef },
   );
 
-  return (
+  return projects ? (
     <WorkProvider>
       <ContainerSection id={'works'}>
         <ContainerCarousel ref={sectionRef}>
@@ -74,7 +74,7 @@ const HomeWorks: React.FC = () => {
         </ContainerCarousel>
       </ContainerSection>
     </WorkProvider>
-  );
+  ) : null;
 };
 
 export default HomeWorks;
