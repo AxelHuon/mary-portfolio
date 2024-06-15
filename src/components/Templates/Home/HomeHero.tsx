@@ -10,6 +10,7 @@ import TextStyled from '@/components/Atoms/TextStyled/TextStyled';
 import { Colors } from '@/utils/Theme/colors';
 import { useGSAP } from '@gsap/react';
 import { device } from '@/utils/BreakPoints/breakpoints';
+import useScrollToTopOnMount from '@/hooks/useScrollToTopOnMount/useScrollToTopOnMount';
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -119,6 +120,8 @@ const AllImagesContainer = styled.div`
 const HomeHero: React.FC = () => {
   const ContainerTitleRef = useRef<HTMLDivElement>(null);
   const ContainerImagesRef = useRef<HTMLDivElement>(null);
+
+  useScrollToTopOnMount();
 
   useGSAP(
     () => {

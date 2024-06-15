@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef } from 'react';
 import SectionXL from '@/components/Atoms/Sections/SectionXL/SectionXL';
 import TextStyled from '@/components/Atoms/TextStyled/TextStyled';
