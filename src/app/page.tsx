@@ -6,6 +6,7 @@ import HomeWorks from '@/components/Templates/Home/HomeWorks';
 import { WorkProvider } from '@/context/WorkContext/WorkContext';
 import HomeTitleWorks from '@/components/Templates/Home/HomeTitleWorks';
 import useScrollToTopOnMount from '@/hooks/useScrollToTopOnMount/useScrollToTopOnMount';
+import Loader from '@/components/Atoms/Loader/Loader';
 
 const ArticleContainer = styled.div`
   min-height: 100vh;
