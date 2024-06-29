@@ -1,12 +1,11 @@
-'use client';
-import HomeHero from '@/components/Templates/Home/HomeHero';
-import styled from 'styled-components';
-import HomeLittleAbout from '@/components/Templates/Home/HomeLittleAbout';
-import HomeWorks from '@/components/Templates/Home/HomeWorks';
-import { WorkProvider } from '@/context/WorkContext/WorkContext';
-import HomeTitleWorks from '@/components/Templates/Home/HomeTitleWorks';
-import useScrollToTopOnMount from '@/hooks/useScrollToTopOnMount/useScrollToTopOnMount';
-import Loader from '@/components/Atoms/Loader/Loader';
+"use client";
+import HomeHero from "@/components/Templates/Home/HomeHero";
+import styled from "styled-components";
+import HomeLittleAbout from "@/components/Templates/Home/HomeLittleAbout";
+import HomeWorks from "@/components/Templates/Home/HomeWorks";
+import HomeTitleWorks from "@/components/Templates/Home/HomeTitleWorks";
+import useScrollToTopOnMount from "@/hooks/useScrollToTopOnMount/useScrollToTopOnMount";
+import Loader from "@/components/Atoms/Loader/Loader";
 
 const ArticleContainer = styled.div`
   min-height: 100vh;
@@ -19,6 +18,7 @@ export default function Home() {
   return (
     <>
       <ArticleContainer>
+        <Loader />
         <HomeHero />
         <HomeLittleAbout />
         <HomeTitleWorks />
